@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon should match snapshot 1`] = `
+<styled.i
+  data-test-id="icon"
+  icon="e9d5"
+  styles="
+display: flex;
+  	font-family: 'icomoon' !important;
+  	speak: never;
+  	font-style: normal;
+  	font-weight: normal;
+  	font-variant: normal;
+  	text-transform: none;
+  	line-height: 1;
+  	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: theme.colors.brand;
+	font-size: 20px;
+	
+
+	[disabled] {
+		cursor: not-allowed;
+		opacity: 0.7;
+	}
+
+  	:after {
+		content: \\"\\\\e9d5\\";
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+  	}
+"
+/>
+`;
+
+exports[`Icon should match snapshot when optional args are provided 1`] = `
+<styled.i
+  color="red"
+  data-test-id="icon"
+  disabled={true}
+  icon="e9d5"
+  size={60}
+  styles="
+display: flex;
+  	font-family: 'icomoon' !important;
+  	speak: never;
+  	font-style: normal;
+  	font-weight: normal;
+  	font-variant: normal;
+  	text-transform: none;
+  	line-height: 1;
+  	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: red;
+	font-size: 60px;
+	
+
+	[disabled] {
+		cursor: not-allowed;
+		opacity: 0.7;
+	}
+
+  	:after {
+		content: \\"\\\\e9d5\\";
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+  	}
+"
+/>
+`;

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags should match snapshot 1`] = `
+<styled.div
+  styles="
+    display: flex;
+    flex-wrap: wrap;
+"
+>
+  <styled.span
+    key="x"
+    styles="
+    background-color: theme.colors.brand;
+    border-radius: 5px;
+    color: white;
+    font-family: Roboto Mono;
+    font-size: 13px;
+    padding: 5px;
+    margin: 5px 5px 0 0;
+"
+  >
+    x
+  </styled.span>
+  <styled.span
+    key="y"
+    styles="
+    background-color: theme.colors.brand;
+    border-radius: 5px;
+    color: white;
+    font-family: Roboto Mono;
+    font-size: 13px;
+    padding: 5px;
+    margin: 5px 5px 0 0;
+"
+  >
+    y
+  </styled.span>
+  <styled.span
+    key="z"
+    styles="
+    background-color: theme.colors.brand;
+    border-radius: 5px;
+    color: white;
+    font-family: Roboto Mono;
+    font-size: 13px;
+    padding: 5px;
+    margin: 5px 5px 0 0;
+"
+  >
+    z
+  </styled.span>
+</styled.div>
+`;

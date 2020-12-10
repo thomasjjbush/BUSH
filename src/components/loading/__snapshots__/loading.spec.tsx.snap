@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Thumbnail should match snapshot 1`] = `
+<styled.main
+  data-test-id="loading"
+  styles="
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+"
+>
+  <h1>
+    Loading
+  </h1>
+  <Image
+    size={200}
+    src="theme.images.loading"
+    width={50}
+  />
+</styled.main>
+`;

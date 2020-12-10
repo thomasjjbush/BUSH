@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should match snapshot 1`] = `
+<styled.nav
+  styles="
+    background-color: theme.colors.highlight;
+    box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.25);
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    padding: 10px;
+    z-index: 1;
+
+    button {
+        margin: 0;
+
+        @media only screen and (max-width: theme.breakpoints.mobilepx) {
+            display: none;
+        }
+    }
+"
+>
+  <Link
+    to="/"
+  >
+    <Image
+      alt="BUSH"
+      height={40}
+      size={200}
+      src="theme.images.logo.pink"
+    />
+  </Link>
+  <styled.div
+    styles="
+    align-items: center;
+    display: flex;
+
+    a {
+        margin-right: 10px;
+
+        i {
+            color: theme.colors.text;
+        }
+    }
+"
+  >
+    <a
+      data-test-id="linkedin-icon"
+      href="https://www.linkedin.com/in/thomas-bush-555604161/"
+      key="0"
+      rel="noreferrer"
+      target="_blank"
+      title="LinkedIn"
+    >
+      <Icon
+        icon="eac9"
+        size={30}
+      />
+    </a>
+    <a
+      data-test-id="github-icon"
+      href="https://github.com/thomasjjbush"
+      key="1"
+      rel="noreferrer"
+      target="_blank"
+      title="Github"
+    >
+      <Icon
+        icon="eab0"
+        size={30}
+      />
+    </a>
+    <a
+      data-test-id="whatsapp-icon"
+      href="tel:+447501274429"
+      key="2"
+      rel="noreferrer"
+      title="WhatsApp"
+    >
+      <Icon
+        icon="ea93"
+        size={30}
+      />
+    </a>
+    <Button
+      design={0}
+      onClick={[Function]}
+    >
+      Download CV
+    </Button>
+  </styled.div>
+</styled.nav>
+`;

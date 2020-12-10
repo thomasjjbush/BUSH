@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Thumbnail should match snapshot 1`] = `
+<AspectRatio
+  ratio={62.5}
+>
+  <styled.div
+    color="red"
+    styles="
+    align-items: center;
+    background: linear-gradient(red 0%, transparent 100%),
+        url(url?w=750) no-repeat center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 30px;
+"
+    url="url"
+  >
+    <styled.h1
+      styles="
+    color: white;
+    text-align: center;
+"
+    >
+      name
+    </styled.h1>
+    <span>
+      client
+    </span>
+  </styled.div>
+</AspectRatio>
+`;

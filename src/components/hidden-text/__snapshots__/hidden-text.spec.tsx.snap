@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HiddenText should match snapshot when not scrollable 1`] = `
+<div>
+  <styled.p
+    clamped={true}
+    lines={2}
+    styles="
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+"
+  >
+    My text
+  </styled.p>
+</div>
+`;
+
+exports[`HiddenText should match snapshot when scrollable 1`] = `
+<div>
+  <styled.p
+    clamped={true}
+    lines={2}
+    styles="
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+"
+  >
+    My text
+  </styled.p>
+  <Button
+    onClick={[Function]}
+  >
+    View more
+  </Button>
+</div>
+`;
+
+exports[`HiddenText should unclamp text and hide button on click 1`] = `
+<div>
+  <styled.p
+    clamped={false}
+    lines={2}
+    styles="
+    display: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+"
+  >
+    My text
+  </styled.p>
+</div>
+`;

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`configs imageScales should match snapshot 1`] = `
+Array [
+  0.2,
+  0.4,
+  0.6,
+  0.8,
+  1,
+]
+`;
+
+exports[`configs labels should match snapshot 1`] = `
+Object {
+  "aboutMe": "Highly motivated and talented software engineer with over 5 years commercial experience across a broad range of products. I take genuine pride in writing clean, concise and fully tested solutions. As a self taught engineer I am passionate about mentoring as I have personally benefited massively from those who were willing to help me, thus I am always keen to help those around me.",
+  "experience": "Experience",
+  "filterByClient": "Filter by client",
+  "jobTitle": "Software Engineer",
+  "latest": "Latest",
+  "loadMore": "Load more",
+  "name": "Thomas Bush",
+  "oldest": "Oldest",
+  "present": "present",
+  "sameClient": "Other projects for ",
+  "sameTag": "Other projects using ",
+  "search": "Search by project name...",
+  "selectOrder": "Select order",
+  "skills": "Skills",
+}
+`;
+
+exports[`configs orders should match snapshot 1`] = `
+Array [
+  Object {
+    "name": "Latest",
+    "value": "year_DESC",
+  },
+  Object {
+    "name": "Oldest",
+    "value": "year_ASC",
+  },
+]
+`;
+
+exports[`configs routes should match snapshot 1`] = `
+Array [
+  Object {
+    "module": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_ctor": [Function],
+      "_result": null,
+      "_status": -1,
+    },
+    "path": "/",
+  },
+  Object {
+    "module": Object {
+      "$$typeof": Symbol(react.lazy),
+      "_ctor": [Function],
+      "_result": null,
+      "_status": -1,
+    },
+    "path": "/projects/:slug",
+  },
+]
+`;

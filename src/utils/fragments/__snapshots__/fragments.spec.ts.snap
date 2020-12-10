@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fragments clientFragment should match snapshot 1`] = `
+"
+    fragment ClientFragment on Clients {
+        name
+        primaryColor
+        logo {
+            url
+        }
+        slug
+        url
+    }
+"
+`;
+
+exports[`fragments projectFragment should match snapshot 1`] = `
+"
+    fragment ProjectFragment on Project {
+        client {
+            name
+            primaryColor
+            logo {
+                url
+            }
+            slug
+            url
+        }
+        name
+        slug
+        tags: tagsCollection(limit: 20) {
+            items {
+                name
+                slug
+            }
+        }
+    }
+"
+`;
+
+exports[`fragments similarFragment should match snapshot 1`] = `
+"
+    fragment SimilarFragment on Project {
+        name
+        slug
+        hero {
+            url
+        }
+    }
+"
+`;
+
+exports[`fragments tagFragmemt should match snapshot 1`] = `
+"
+    fragment TagFragemnt on Tag {
+        name
+        slug
+    }
+"
+`;

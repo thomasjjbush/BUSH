@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render primary button correctly and invoke onClick cb on click 1`] = `
+<Styled(styled.button)
+  design={0}
+  onClick={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  styles="
+    align-self: flex-start;
+    align-items: center;
+    appearance: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    justify-content-space-between;
+    padding: 10px 20px;
+    margin: 20px 0 0 0;
+
+    img {
+        margin-left: 10px;
+    }
+
+    background-color: theme.colors.brand;
+    border: 0;
+    color: white;
+"
+  type="button"
+>
+  Label
+</Styled(styled.button)>
+`;
+
+exports[`Button should render secondary button correctly and invoke onClick cb on click 1`] = `
+<Styled(styled.button)
+  design={1}
+  onClick={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  styles="
+    align-self: flex-start;
+    align-items: center;
+    appearance: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    justify-content-space-between;
+    padding: 10px 20px;
+    margin: 20px 0 0 0;
+
+    img {
+        margin-left: 10px;
+    }
+
+    background-color: transparent;
+    border: solid 2px theme.colors.brand;
+    color: theme.colors.text;
+"
+  type="button"
+>
+  Label
+</Styled(styled.button)>
+`;

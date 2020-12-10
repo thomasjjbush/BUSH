@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image should match snapshot 1`] = `
+<picture>
+  <source
+    srcSet="https://some-url?fm=webp&q=44&w=40 40w,https://some-url?fm=webp&q=44&w=80 80w,https://some-url?fm=webp&q=44&w=120 120w,https://some-url?fm=webp&q=44&w=160 160w,https://some-url?fm=webp&q=44&w=200 200w"
+  />
+  <img
+    alt="img"
+    height="auto"
+    src="https://some-url"
+    srcSet="https://some-url?q=44&w=40 40w,https://some-url?q=44&w=80 80w,https://some-url?q=44&w=120 120w,https://some-url?q=44&w=160 160w,https://some-url?q=44&w=200 200w"
+    width="auto"
+  />
+</picture>
+`;

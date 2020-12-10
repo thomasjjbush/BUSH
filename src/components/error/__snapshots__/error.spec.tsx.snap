@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should match snapshot 1`] = `
+<styled.section
+  styles="
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+"
+>
+  <styled.h1
+    styles="
+    color: theme.colors.brand;
+    font-size: 10vw;
+"
+  >
+    400
+  </styled.h1>
+  <p>
+    Bad Request
+  </p>
+  <button>
+    Button
+  </button>
+</styled.section>
+`;

@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AspectRatio should render correct ratio 1`] = `
+<styled.div
+  ratio={56.25}
+  styles="
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+"
+>
+  <styled.div
+    styles="
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+"
+  />
+</styled.div>
+`;
+
+exports[`AspectRatio should render correct ratio 2`] = `
+<styled.div
+  ratio={100}
+  styles="
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+"
+>
+  <styled.div
+    styles="
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+"
+  />
+</styled.div>
+`;
+
+exports[`AspectRatio should render correct ratio 3`] = `
+<styled.div
+  ratio={28.125}
+  styles="
+    height: 0;
+    padding-bottom: 28.125%;
+    position: relative;
+"
+>
+  <styled.div
+    styles="
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+"
+  />
+</styled.div>
+`;
+
+exports[`AspectRatio should render correct ratio 4`] = `
+<styled.div
+  ratio={66.66}
+  styles="
+    height: 0;
+    padding-bottom: 66.66%;
+    position: relative;
+"
+>
+  <styled.div
+    styles="
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+"
+  />
+</styled.div>
+`;
+
+exports[`AspectRatio should render correct ratio 5`] = `
+<styled.div
+  ratio={75}
+  styles="
+    height: 0;
+    padding-bottom: 75%;
+    position: relative;
+"
+>
+  <styled.div
+    styles="
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+"
+  />
+</styled.div>
+`;
+
+exports[`AspectRatio should render correct ratio 6`] = `
+<styled.div
+  ratio={62.5}
+  styles="
+    height: 0;
+    padding-bottom: 62.5%;
+    position: relative;
+"
+>
+  <styled.div
+    styles="
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+"
+  />
+</styled.div>
+`;

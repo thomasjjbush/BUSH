@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match snapshot 1`] = `
+<Component
+  theme={
+    Object {
+      "colors": Object {
+        "text": "colors.text",
+      },
+    }
+  }
+>
+  <ContextProvider
+    value="client"
+  >
+    <Memo(l) />
+    <BrowserRouter>
+      <Nav />
+      <Suspense
+        fallback={<Unknown />}
+      >
+        <Switch>
+          <Route
+            exact={true}
+            key="/"
+            path="/"
+          >
+            <lazy />
+          </Route>
+          <Route
+            exact={true}
+            key="/projects/:slug"
+            path="/projects/:slug"
+          >
+            <lazy />
+          </Route>
+        </Switch>
+      </Suspense>
+      <aside>
+        <Styled(styled.button)
+          aria-label="Enable light mode"
+          data-test-id="contrast-button"
+          onClick={[Function]}
+          styles="
+    align-self: flex-start;
+    align-items: center;
+    appearance: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    justify-content-space-between;
+    padding: 10px 20px;
+    margin: 20px 0 0 0;
+
+    img {
+        margin-left: 10px;
+    }
+
+    bottom: 30px;
+    right: 30px;
+    margin: 0;
+    position: absolute;
+    background: transparent;
+    border: 0;
+"
+        >
+          <Icon
+            color="colors.text"
+            icon="e9d5"
+            size={50}
+          />
+        </Styled(styled.button)>
+      </aside>
+    </BrowserRouter>
+  </ContextProvider>
+</Component>
+`;

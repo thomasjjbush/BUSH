@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags should match snapshot 1`] = `
+<styled.div
+  data-test-id="scroller"
+  onScroll={[MockFunction]}
+  styles="
+    align-items: flex-start;
+    flex: 1 1 auto;
+    overflow: scroll;
+    padding: 3px;
+    scroll-behavior: smooth;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+"
+  tabIndex={0}
+>
+  <div>
+    children
+  </div>
+</styled.div>
+`;

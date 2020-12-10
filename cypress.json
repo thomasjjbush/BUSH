@@ -1,0 +1,9 @@
+{
+    "retries": {
+        "runMode": 3
+    },
+    "screenshotOnRunFailure": false,
+    "video": false,
+    "viewportHeight": 960,
+    "viewportWidth": 1536
+}

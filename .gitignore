@@ -1,0 +1,8 @@
+cypress/videos
+cypress/screenshots
+cypress/**/__diff_output__
+dist/
+node_modules/
+.env.development
+.env.production
+.DS_STORE
