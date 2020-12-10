@@ -33,10 +33,10 @@ jobs:
       - name: Install dependancies
         run: npm install
 
+      - name: Start client
+        run: npm run start
+        wait-on: http://localhost:3000
+
       # Runs a single command using the runners shell
-      - name: Cypress run
-        uses: cypress-io/github-action@v1
-        with:
-          start: npm run start
-          wait-on: http://localhost:3000
-          parallel: true
+      - name: Run tests
+        run: npm run visual-regression
