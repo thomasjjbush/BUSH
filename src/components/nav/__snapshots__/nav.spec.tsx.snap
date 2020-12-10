@@ -6,8 +6,8 @@ exports[`Nav should match snapshot 1`] = `
     background-color: theme.colors.highlight;
     box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.25);
     display: flex;
-    justify-content: space-between;
     height: 60px;
+    justify-content: space-between;
     padding: 10px;
     z-index: 1;
 
