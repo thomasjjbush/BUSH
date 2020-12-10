@@ -5,8 +5,8 @@ export const StyledNav = styled.nav<StyledProps>`
     background-color: ${(props): string => props.theme.colors.highlight};
     box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.25);
     display: flex;
-    justify-content: space-between;
     height: 60px;
+    justify-content: space-between;
     padding: 10px;
     z-index: 1;
 
@@ -27,7 +27,7 @@ export const StyledActions = styled.div`
         margin-right: 10px;
 
         i {
-            color: ${props => props.theme.colors.text};
+            color: ${(props): string => props.theme.colors.text};
         }
     }
 `;
