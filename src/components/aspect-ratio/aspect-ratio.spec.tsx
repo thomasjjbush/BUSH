@@ -18,6 +18,6 @@ describe('AspectRatio', () => {
 
     it('should render children if provided', () => {
         const wrapper = shallow(<AspectRatio ratio={AspectRatios['16:9']}>Child</AspectRatio>);
-        expect(wrapper.find(StyledAspectRatioContainer).text()).toBe('Child');
+        expect(wrapper.find(StyledAspectRatioContainer).text()).toBe('Childs');
     });
 });
