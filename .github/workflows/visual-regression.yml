@@ -28,7 +28,12 @@ jobs:
         run: npm install
 
       - name: Start client
-        run: npm run start & npx wait-on http://localhost:3000
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+          IMAGE_DOMAIN: ${{ secrets.IMAGE_DOMAIN }}
+          SPACE_ID: ${{ secrets.SPACE_ID }}
+        run: npm run start -- --env.ACCESS_TOKEN=env.ACCESS_TOKEN --env.ENVIRONMENT=env.ENVIRONMENT  --env.IMAGE_DOMAIN=env.IMAGE_DOMAIN --env.SPACE_ID=env.SPACE_ID & npx wait-on http://localhost:3000
 
       # Runs a single command using the runners shell
       - name: Run tests
