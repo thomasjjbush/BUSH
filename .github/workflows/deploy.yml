@@ -8,14 +8,25 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        
-      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
-        env: 
-          NETLIFY_AUTH_TOKEN: secrets.NETLIFY_AUTH_TOKEN
+      
+      - name: Build app
+        env:
+          ACCESS_TOKEN: ${{ secrets.PRODUCTION_CONTENT_ACCESS_TOKEN }}
+          ENVIRONMENT: ${{ secrets.PRODUCTION_ENVIRONMENT }}
+          IMAGE_DOMAIN: ${{ secrets.IMAGE_DOMAIN }}
+          SPACE_ID: ${{ secrets.SPACE_ID }}
+        run: npm run build -- --env.ACCESS_TOKEN=$ACCESS_TOKEN --env.ENVIRONMENT=$ENVIRONMENT  --env.IMAGE_DOMAIN=$IMAGE_DOMAIN --env.SPACE_ID=$SPACE_ID
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
         with:
-          NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN
-          NETLIFY_DEPLOY_TO_PROD: true
+          publish-dir: './dist'
+          production-branch: master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          production-deploy: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
