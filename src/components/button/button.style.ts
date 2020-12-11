@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-    align-self: flex-start;
     align-items: center;
+    align-self: flex-start;
     appearance: none;
     border-radius: 5px;
     cursor: pointer;
@@ -10,8 +10,8 @@ export const StyledButton = styled.button`
     font-size: 18px;
     font-weight: bold;
     justify-content-space-between;
-    padding: 10px 20px;
     margin: 20px 0 0 0;
+    padding: 10px 20px;
 
     img {
         margin-left: 10px;
