@@ -20,3 +20,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.MY_TOKEN_SECRET }}
           NETLIFY_DEPLOY_TO_PROD: true
           build_command: npm run build -- --env ACCESS_TOKEN=${{ secrets.PRODUCTION_CONTENT_ACCESS_TOKEN }}
+          build_directory: poo
