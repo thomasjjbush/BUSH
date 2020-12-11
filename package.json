@@ -4,13 +4,14 @@
   "description": "Simple reusable React boilerplate.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "start": "webpack-dev-server --env.NODE_ENV=development --open --compress --port 3000",
     "build": "webpack --env.NODE_ENV=production --mode production",
+    "clean": "rm -rf node_modules",
     "cypress:open": "./node_modules/.bin/cypress open",
     "functional": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.functional.spec.ts,cypress/integration/project.functional.spec.ts'",
-    "visual-regression": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.visual.spec.ts,cypress/integration/project.visual.spec.ts'",
-    "clean": "rm -rf node_modules"
+    "lint": "eslint",
+    "start": "webpack-dev-server --env.NODE_ENV=development --open --compress --port 3000",
+    "test": "jest",
+    "visual-regression": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.visual.spec.ts,cypress/integration/project.visual.spec.ts'"
   },
   "author": "Thomas Bush",
   "license": "ISC",
