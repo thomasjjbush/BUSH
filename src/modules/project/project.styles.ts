@@ -80,8 +80,8 @@ export const Similar = styled.div<StyledProps<{ url: string }>>`
             theme.isWebpSupported && 'webp',
         )}`};
     background-size: cover;
-    height: 100px;
     flex: 1;
+    height: 100px;
     line-height: 100px;
     padding: 0 30px;
 
