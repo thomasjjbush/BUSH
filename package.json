@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --env.NODE_ENV=development --open --compress --port 3000",
     "build": "webpack --env.NODE_ENV=production --mode production",
     "cypress:open": "./node_modules/.bin/cypress open",
-    "functional": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.visual.spec.ts,cypress/integration/project.visual.spec.ts'",
+    "functional": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.functional.spec.ts,cypress/integration/project.functional.spec.ts'",
     "visual-regression": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.visual.spec.ts,cypress/integration/project.visual.spec.ts'",
     "clean": "rm -rf node_modules"
   },
