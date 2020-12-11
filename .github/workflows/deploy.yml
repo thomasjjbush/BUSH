@@ -14,10 +14,7 @@ jobs:
       - name: Build app
         env:
           ACCESS_TOKEN: ${{ secrets.PRODUCTION_CONTENT_ACCESS_TOKEN }}
-          ENVIRONMENT: ${{ secrets.PRODUCTION_ENVIRONMENT }}
-          IMAGE_DOMAIN: ${{ secrets.IMAGE_DOMAIN }}
-          SPACE_ID: ${{ secrets.SPACE_ID }}
-        run: npm run build -- --env.ACCESS_TOKEN=$ACCESS_TOKEN --env.ENVIRONMENT=$ENVIRONMENT  --env.IMAGE_DOMAIN=$IMAGE_DOMAIN --env.SPACE_ID=$SPACE_ID
+        run: npm run build -- --env ACCESS_TOKEN=$ACCESS_TOKEN
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1

@@ -18,10 +18,7 @@ jobs:
       - name: Start client
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-          IMAGE_DOMAIN: ${{ secrets.IMAGE_DOMAIN }}
-          SPACE_ID: ${{ secrets.SPACE_ID }}
-        run: npm run start -- --env.ACCESS_TOKEN=$ACCESS_TOKEN --env.ENVIRONMENT=$ENVIRONMENT  --env.IMAGE_DOMAIN=$IMAGE_DOMAIN --env.SPACE_ID=$SPACE_ID & npx wait-on http://localhost:3000
+        run: npm run start -- --env.ACCESS_TOKEN=$ACCESS_TOKEN & npx wait-on http://localhost:3000
 
       - name: Run tests
         run: npm run visual-regression

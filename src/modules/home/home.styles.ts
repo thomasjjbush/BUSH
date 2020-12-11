@@ -100,19 +100,19 @@ export const Section = styled.section`
 export const Timeline = styled.div<StyledProps>`
     :before,
     :after {
+        background-color: ${(props): string => props.theme.colors.brand};
         content: '';
         display: block;
         margin: auto;
-        background-color: ${(props): string => props.theme.colors.brand};
     }
     :before {
-        width: 20px;
-        height: 20px;
         border-radius: 50%;
+        height: 20px;
+        width: 20px;
     }
 
     :after {
-        width: 2px;
         height: 100%;
+        width: 2px;
     }
 `;

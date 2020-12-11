@@ -4,12 +4,11 @@
   "description": "Simple reusable React boilerplate.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --env.NODE_ENV=production --mode production",
-    "clean": "rm -rf node_modules",
+    "build": "webpack --env.NODE_ENV=production --env.CONTENT_ENVIRONMENT=master --mode production",
     "cypress:open": "./node_modules/.bin/cypress open",
     "functional": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.functional.spec.ts,cypress/integration/project.functional.spec.ts'",
     "lint": "eslint",
-    "start": "webpack-dev-server --env.NODE_ENV=development --open --compress --port 3000",
+    "start": "webpack-dev-server --env.NODE_ENV=development --env.CONTENT_ENVIRONMENT=development --open --compress --port 3000",
     "test": "jest",
     "visual-regression": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.visual.spec.ts,cypress/integration/project.visual.spec.ts'"
   },

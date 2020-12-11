@@ -8,7 +8,7 @@ describe('graphql context', () => {
             expect(client).toEqual({
                 options: { headers: { Authorization: 'Bearer process.env.ACCESS_TOKEN' } },
                 url:
-                    'https://graphql.contentful.com/content/v1/spaces/process.env.SPACE_ID/environments/process.env.ENVIRONMENT',
+                    'https://graphql.contentful.com/content/v1/spaces/e85zpqq4b2pc/environments/process.env.CONTENT_ENVIRONMENT',
             });
         });
     });

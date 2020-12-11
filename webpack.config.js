@@ -7,6 +7,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = ({ NODE_ENV, ...secrets }) => {
     const envVars = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed;
+    console.log(secrets);
     return {
         output: {
             publicPath: '/'
