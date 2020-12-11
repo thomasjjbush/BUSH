@@ -11,9 +11,12 @@ module.exports = (args) => {
         .reduce((acc, cur) => ({ ...acc, ...cur }), {});
 
 
-    console.log(args);
+   
 
     const env = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed || {};
+
+    console.log('passed as env flags', args);
+    console.log('dotenv with no config', dotenv.config().parsed);
 
     return {
         output: {
