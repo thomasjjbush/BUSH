@@ -12,6 +12,8 @@ module.exports = (args) => {
 
     const env = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed || {};
 
+    console.log({ ...env, ...rest });
+
     return {
         output: {
             publicPath: '/'
