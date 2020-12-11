@@ -12,6 +12,7 @@ module.exports = (args) => {
 
     const env = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed || {};
 
+    console.log(args);
     console.log({ ...env, ...rest });
 
     return {
