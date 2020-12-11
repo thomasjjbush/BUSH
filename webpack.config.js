@@ -9,14 +9,8 @@ module.exports = (args) => {
     const { NODE_ENV, ...rest } = args
         .map((arg) => ({ [arg.split('=')[0]]: arg.split('=')[1] }))
         .reduce((acc, cur) => ({ ...acc, ...cur }), {});
-
-
-   
-
+        
     const env = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed || {};
-
-    console.log('passed as env flags', args);
-    console.log('dotenv with no config', dotenv.config().parsed);
 
     return {
         output: {
