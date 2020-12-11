@@ -1,0 +1,30 @@
+name: functional
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependancies
+        run: npm install
+
+      - name: Start client
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+          IMAGE_DOMAIN: ${{ secrets.IMAGE_DOMAIN }}
+          SPACE_ID: ${{ secrets.SPACE_ID }}
+        run: npm run start -- --env.ACCESS_TOKEN=$ACCESS_TOKEN --env.ENVIRONMENT=$ENVIRONMENT  --env.IMAGE_DOMAIN=$IMAGE_DOMAIN --env.SPACE_ID=$SPACE_ID & npx wait-on http://localhost:3000
+
+      - name: Run tests
+        run: npm run functional
