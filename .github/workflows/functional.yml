@@ -16,9 +16,7 @@ jobs:
         run: npm install
 
       - name: Start client
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        run: npm run start -- --env ACCESS_TOKEN=$ACCESS_TOKEN & npx wait-on http://localhost:3000
+        run: npm run start -- --env ACCESS_TOKEN=${{ secrets.DEVELOPMENT_CONTENT_ACCESS_TOKEN }} & npx wait-on http://localhost:3000
 
       - name: Run tests
         run: npm run functional

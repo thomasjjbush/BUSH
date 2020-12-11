@@ -14,10 +14,8 @@ jobs:
       - name: Install dependancies
         run: npm install
       
-      - name: Build app
-        env:
-          ACCESS_TOKEN: ${{ secrets.PRODUCTION_CONTENT_ACCESS_TOKEN }}
-        run: npm run build -- --env ACCESS_TOKEN=$ACCESS_TOKEN
+      - name: Build app 
+        run: npm run build -- --env ACCESS_TOKEN=${{ secrets.PRODUCTION_CONTENT_ACCESS_TOKEN }}
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
