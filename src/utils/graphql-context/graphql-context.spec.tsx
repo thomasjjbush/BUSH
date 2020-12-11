@@ -6,7 +6,7 @@ describe('graphql context', () => {
     describe('client', () => {
         it('should create instance of GraphQLClient using correct arguments', () => {
             expect(client).toEqual({
-                options: { headers: { Authorization: 'Bearer process.env.ACCESS_TOKEN' } },
+                options: { headers: { Authorization: 'Bearer process.env.CONTENT_ACCESS_TOKEN' } },
                 url:
                     'https://graphql.contentful.com/content/v1/spaces/e85zpqq4b2pc/environments/process.env.CONTENT_ENVIRONMENT',
             });
