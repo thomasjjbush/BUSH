@@ -10,6 +10,9 @@ module.exports = (args) => {
         .map((arg) => ({ [arg.split('=')[0]]: arg.split('=')[1] }))
         .reduce((acc, cur) => ({ ...acc, ...cur }), {});
 
+
+    console.log(args);
+
     const env = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed || {};
 
     return {
