@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-module.exports = ({ NODE_ENV }) => {
+module.exports = ({ NODE_ENV, ...args }) => {
     const envVars = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed;
     return {
         output: {
@@ -56,7 +56,7 @@ module.exports = ({ NODE_ENV }) => {
                 template: './src/index.html',
                 filename: './index.html',
             }),
-            new webpack.DefinePlugin({ 'process.env': JSON.stringify(envVars) }),
+            new webpack.DefinePlugin({ 'process.env': JSON.stringify(Object.keys(envVars).reduce((acc, key) => ({ ...acc, [key]: args[key] || envVars[key] }), {})) }),
         ],
     };
 };
