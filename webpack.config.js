@@ -5,9 +5,13 @@ const webpack = require('webpack');
 const CompressionPlugin = require("compression-webpack-plugin");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-module.exports = ({ NODE_ENV, ...secrets }) => {
-    const envVars = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed;
-    console.log(secrets);
+module.exports = (args) => {
+    const { NODE_ENV, ...rest } = args
+        .map((arg) => ({ [arg.split('=')[0]]: arg.split('=')[1] }))
+        .reduce((acc, cur) => ({ ...acc, ...cur }), {});
+
+    const env = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed || {};
+
     return {
         output: {
             publicPath: '/'
@@ -57,7 +61,7 @@ module.exports = ({ NODE_ENV, ...secrets }) => {
                 template: './src/index.html',
                 filename: './index.html',
             }),
-            new webpack.DefinePlugin({ 'process.env': JSON.stringify(envVars || secrets)}),
+            new webpack.DefinePlugin({ 'process.env': JSON.stringify({ ...env, ...rest })}),
         ],
     };
 };
