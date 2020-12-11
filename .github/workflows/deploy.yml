@@ -1,0 +1,21 @@
+name: deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        
+      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        env: 
+          NETLIFY_AUTH_TOKEN: secrets.NETLIFY_AUTH_TOKEN
+        with:
+          NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN
+          NETLIFY_DEPLOY_TO_PROD: true
