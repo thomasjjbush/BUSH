@@ -14,6 +14,8 @@ module.exports = (args) => {
 
     console.log(args);
     console.log({ ...env, ...rest });
+    console.log(typeof rest.ACCESS_TOKEN)
+    console.log(typeof rest.ACCESS_TOKEN && rest.ACCESS_TOKEN.length);
 
     return {
         output: {
