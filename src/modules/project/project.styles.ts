@@ -42,7 +42,7 @@ export const Info = styled.div`
     padding: 30px;
 
     & > div:not(:last-child) {
-        margin-bottom: 30px;
+        margin-bottom: 60px;
     }
 `;
 
@@ -83,9 +83,13 @@ export const Similar = styled.div<StyledProps<{ url: string }>>`
     flex: 1;
     height: 100px;
     line-height: 100px;
+    overflow: hidden;
     padding: 0 30px;
 
     h1 {
         color: white;
+        max-width: 85%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 `;

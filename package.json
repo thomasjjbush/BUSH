@@ -4,13 +4,14 @@
   "description": "Simple reusable React boilerplate.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --env NODE_ENV=production --env CONTENT_ENVIRONMENT=master --mode production",
+    "build": " rm -rf ./dist && webpack -p --env NODE_ENV=production --env CONTENT_ENVIRONMENT=master",
     "cypress:open": "./node_modules/.bin/cypress open",
     "functional": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.functional.spec.ts,cypress/integration/project.functional.spec.ts'",
     "lint": "eslint",
     "start": "webpack-dev-server --env NODE_ENV=development --env CONTENT_ENVIRONMENT=development --open --compress --port 3000",
     "test": "jest",
-    "visual-regression": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.visual.spec.ts,cypress/integration/project.visual.spec.ts'"
+    "visual-regression": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.visual.spec.ts,cypress/integration/project.visual.spec.ts'",
+    "visual-regression:update": "./node_modules/.bin/cypress run --spec 'cypress/integration/home.visual.spec.ts,cypress/integration/project.visual.spec.ts' -- --env updateSnapshots=true"
   },
   "author": "Thomas Bush",
   "license": "ISC",
@@ -43,6 +44,7 @@
     "jest": "^25.5.4",
     "react-test-renderer": "^16.14.0",
     "ts-jest": "^25.5.1",
+    "ts-node": "^9.1.1",
     "typescript": "^3.9.7",
     "webpack": "^5.10.0",
     "webpack-bundle-analyzer": "^4.2.0",
@@ -58,6 +60,7 @@
     "plugins": []
   },
   "dependencies": {
+    "@types/compression-webpack-plugin": "^6.0.1",
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.10",
     "@types/react-redux": "^7.1.11",

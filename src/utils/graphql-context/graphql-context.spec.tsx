@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactElement } from 'react';
 import { mount } from 'enzyme';
 import { client, GraphQLContext, useGraphQL } from './graphql-context';
+import { GraphQLClient } from 'graphql-request';
 
 describe('graphql context', () => {
     describe('client', () => {
@@ -17,14 +18,14 @@ describe('graphql context', () => {
         it('should return correct context', () => {
             const MockComponent: FunctionComponent = (): ReactElement => {
                 const result = useGraphQL();
-                return <div>{result}</div>;
+                return <div>{JSON.stringify(result)}</div>;
             };
             const wrapper = mount(
-                <GraphQLContext.Provider value={'Messi' as any}>
+                <GraphQLContext.Provider value={new GraphQLClient('mockURL')}>
                     <MockComponent />
                 </GraphQLContext.Provider>,
             );
-            expect(wrapper.find('div').text()).toBe('Messi');
+            expect(JSON.parse(wrapper.find('div').text())).toEqual({ url: 'mockURL', options: {} });
         });
     });
 });

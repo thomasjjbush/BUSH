@@ -1,20 +1,43 @@
-const dotenv = require('dotenv');
-const path = require('path');
-const webpack = require('webpack');
+import dotenv from 'dotenv';
+import path from 'path';
+import webpack from 'webpack';
 
-const CompressionPlugin = require("compression-webpack-plugin");
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+import CompressionPlugin from 'compression-webpack-plugin';
+import HtmlWebPackPlugin from 'html-webpack-plugin';
 
-module.exports = (args) => {
-    const { NODE_ENV, ...rest } = args
-        .map((arg) => ({ [arg.split('=')[0]]: arg.split('=')[1] }))
+interface Rule {
+    exclude?: (RegExp | string)[];
+    test: RegExp;
+    use: {
+        loader: string;
+        options?: { plugins: string[] };
+    };
+}
+
+interface WebpackConfig {
+    output: { publicPath: string };
+    devServer: { historyApiFallback: boolean };
+    entry: string[];
+    resolve: { extensions: string[] };
+    mode: string;
+    module: {
+        rules: Rule[];
+    };
+    plugins: any[];
+}
+
+const objectify = (string: string, i: number): string => string.split('=')[i];
+
+export default (args: string[]): WebpackConfig => {
+    const { NODE_ENV, ...commandVariables } = args
+        .map(arg => ({ [objectify(arg, 0)]: objectify(arg, 1) }))
         .reduce((acc, cur) => ({ ...acc, ...cur }), {});
-        
-    const env = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed || {};
+
+    const envVariables = dotenv.config({ path: `${path.join(__dirname)}/.env.${NODE_ENV}` }).parsed || {};
 
     return {
         output: {
-            publicPath: '/'
+            publicPath: '/',
         },
         devServer: {
             historyApiFallback: true,
@@ -35,7 +58,7 @@ module.exports = (args) => {
                             plugins: [
                                 '@babel/plugin-proposal-nullish-coalescing-operator',
                                 '@babel/plugin-proposal-optional-chaining',
-                                '@babel/plugin-transform-regenerator', 
+                                '@babel/plugin-transform-regenerator',
                                 '@babel/plugin-transform-runtime',
                             ],
                         },
@@ -61,7 +84,7 @@ module.exports = (args) => {
                 template: './src/index.html',
                 filename: './index.html',
             }),
-            new webpack.DefinePlugin({ 'process.env': JSON.stringify({ ...env, ...rest })}),
+            new webpack.DefinePlugin({ 'process.env': JSON.stringify({ ...envVariables, ...commandVariables }) }),
         ],
     };
 };

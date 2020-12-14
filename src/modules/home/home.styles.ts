@@ -52,6 +52,12 @@ export const ExperienceInfo = styled.div`
     padding-left: 30px;
 `;
 
+export const Filters = styled.div`
+    display: flex;
+    flex-shrink: 0;
+    margin-bottom: 15px;
+`;
+
 export const Grid = styled.div`
     display: grid;
     grid-template-columns: calc(50% - 5px) calc(50% - 5px);
@@ -69,13 +75,9 @@ export const Input = styled.input<StyledProps>`
     border-radius: 5px;
     color: ${(props): string => props.theme.colors.text};
     flex: 1;
+    font-size: 16px;
     height: 40px;
     padding: 0 10px;
-`;
-
-export const Filters = styled.div`
-    display: flex;
-    margin-bottom: 15px;
 `;
 
 export const Projects = styled.section`
@@ -85,11 +87,15 @@ export const Projects = styled.section`
 `;
 
 export const Select = styled.select<StyledProps>`
+    appearance: none;
     background-color: ${(props): string => props.theme.colors.highlight};
     border: solid 2px ${(props): string => props.theme.colors.border};
     border-radius: 5px;
     color: ${(props): string => props.theme.colors.text};
+    flex-shrink: 0;
+    font-size: 16px;
     margin-left: 15px;
+    padding: 0 5px;
     width: 60px;
 `;
 

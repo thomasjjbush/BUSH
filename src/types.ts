@@ -134,6 +134,8 @@ interface Media {
     url: string;
 }
 
+export type MockTheme<T = any> = Record<string, T>;
+
 export enum Platform {
     DESKTOP,
     MOBILE,

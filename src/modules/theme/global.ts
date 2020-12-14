@@ -21,10 +21,12 @@ export const Global = createGlobalStyle<StyledProps>`
         color: ${(props): string => props.theme.colors.text};
         text-decoration: none;
         
-        &:focus {
-            outline: dashed 2px ${(props): string => props.theme.colors.brand};
-            outline-offset: 2px;
-        }     
+        @media (hover: none) {
+            &:focus {
+                outline: dashed 2px ${(props): string => props.theme.colors.brand};
+                outline-offset: 2px;
+            }
+        } 
     }
 
     section {

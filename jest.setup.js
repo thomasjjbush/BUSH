@@ -1,11 +1,12 @@
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { createSerializer } from 'enzyme-to-json';
+import { initTheme } from './src/modules/theme/theme';
 import { mockTheme } from './src/test-utils/mock-theme/mock-theme';
 
 configure({ adapter: new Adapter() });
 
-const theme = mockTheme();
+const theme = mockTheme(initTheme(false));
 
 expect.addSnapshotSerializer(
     createSerializer({
