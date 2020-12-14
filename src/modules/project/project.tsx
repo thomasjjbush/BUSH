@@ -55,6 +55,8 @@ const Project: FunctionComponent = (): ReactElement => {
                 const newScroll = Math.ceil(e.target.scrollTop / 10);
                 throttle.current = null;
 
+                if (newScroll < 0) return;
+
                 if (newScroll < 40) {
                     return setScrolled(newScroll);
                 }
