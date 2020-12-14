@@ -34,6 +34,7 @@ export const Hero = styled.div<StyledProps<{ url: string }>>`
     height: 100%;
     flex-shrink: 0;
     justify-content: center;
+    transition: height 0.25s;
 `;
 
 export const Info = styled.div`
@@ -71,6 +72,10 @@ export const Responsibility = styled.div<StyledProps>`
 
 export const SimilarContainer = styled.div`
     display: flex;
+
+    @media only screen and (max-width: ${(props): number => props.theme.breakpoints.tabletPortrait}px) {
+        display: block;
+    }
 `;
 
 export const Similar = styled.div<StyledProps<{ url: string }>>`
@@ -89,6 +94,7 @@ export const Similar = styled.div<StyledProps<{ url: string }>>`
     h1 {
         color: white;
         max-width: 85%;
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }

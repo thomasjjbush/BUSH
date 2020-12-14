@@ -27,6 +27,12 @@ export const Global = createGlobalStyle<StyledProps>`
                 outline-offset: 2px;
             }
         } 
+
+        @media (hover: none) {
+            &:focus {
+                outline: none;
+            }
+        }
     }
 
     section {

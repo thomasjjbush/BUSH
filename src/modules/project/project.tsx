@@ -33,6 +33,7 @@ const Project: FunctionComponent = (): ReactElement => {
     const [scrolled, setScrolled] = useState(0);
     const clientRef = useRef(null);
     const scrollerRef = useRef(null);
+    const throttle = useRef(null);
 
     useEffect(() => {
         dispatch(loadProject(graphQL, slug));
@@ -40,6 +41,7 @@ const Project: FunctionComponent = (): ReactElement => {
             if (scrollerRef?.current?.scrollTop) {
                 scrollerRef.current.scrollTop = 0;
             }
+            clearTimeout(throttle.current);
             setScrolled(0);
             dispatch({ type: ProjectActions.CLEARED });
         };
@@ -47,14 +49,19 @@ const Project: FunctionComponent = (): ReactElement => {
 
     const onScroll = useCallback(
         e => {
-            const newScroll = Math.ceil(e.target.scrollTop / 10);
+            if (throttle?.current) return;
+            e.persist();
+            throttle.current = setTimeout(() => {
+                const newScroll = Math.ceil(e.target.scrollTop / 10);
+                throttle.current = null;
 
-            if (newScroll < 40) {
-                return setScrolled(newScroll);
-            }
-            if (newScroll > 40 && scrolled < 40) {
-                setScrolled(40);
-            }
+                if (newScroll < 40) {
+                    return setScrolled(newScroll);
+                }
+                if (newScroll > 40 && scrolled < 40) {
+                    setScrolled(40);
+                }
+            }, 100);
         },
         [scrolled],
     );
