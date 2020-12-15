@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactElement, useEffect, useState } from 'react';
-import { StyledCarousel, StyledTransform } from './carousel.style';
+import * as Styled from './carousel.style';
 import { CarouselProps as Props, Icons } from '../../types';
 import { Icon } from '../';
 import { FlexBox } from '../../modules/theme/global';
@@ -30,14 +30,13 @@ export const Carousel: FunctionComponent<Props> = ({
                 size={30}
                 testID="left-icon"
             />
-            <StyledCarousel>
-                <StyledTransform align="top" i={index} itemsToDisplay={itemsToDisplay} margin={margin}>
+            <Styled.Carousel>
+                <Styled.Transform align="top" i={index} itemsToDisplay={itemsToDisplay} margin={margin}>
                     {children}
-                </StyledTransform>
-            </StyledCarousel>
+                </Styled.Transform>
+            </Styled.Carousel>
             <Icon
                 color={color}
-                disabled={index === numberOfItems - itemsToDisplay}
                 onClick={(): void => setIndex(index + Math.min(numberOfItems - (index + itemsToDisplay), 1))}
                 icon={Icons.RIGHT}
                 size={30}

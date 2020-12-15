@@ -48,13 +48,8 @@ const Project: FunctionComponent = (): ReactElement => {
 
     const onScroll = useCallback(
         e => {
-            if (stickyRef.current.offsetTop - e.target.scrollTop <= 0 && !sticky) {
-                return setSticky(true);
-            }
-
-            if (stickyRef.current.offsetTop - e.target.scrollTop > 0 && sticky) {
-                return setSticky(false);
-            }
+            if (stickyRef.current.offsetTop - e.target.scrollTop <= 0 && !sticky) return setSticky(true);
+            if (stickyRef.current.offsetTop - e.target.scrollTop > 0 && sticky) return setSticky(false);
         },
         [sticky],
     );
@@ -107,10 +102,10 @@ const Project: FunctionComponent = (): ReactElement => {
                             </video>
                         )}
                     </Styled.Info>
+                    {Boolean(sameClient?.length) &&
+                        renderSimilar(labels.sameClient + client.name, sameClient, client.primaryColor)}
+                    {Boolean(sameTag?.length) && renderSimilar(labels.sameTag + primaryTag.name, sameTag)}
                 </Styled.Container>
-                {Boolean(sameClient?.length) &&
-                    renderSimilar(labels.sameClient + client.name, sameClient, client.primaryColor)}
-                {Boolean(sameTag?.length) && renderSimilar(labels.sameTag + primaryTag.name, sameTag)}
             </Scroller>
             {sticky && (
                 <Styled.Sticky align="center" justify="center" color={client.primaryColor}>

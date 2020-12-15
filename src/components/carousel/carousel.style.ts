@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { FlexBox } from '../../modules/theme/global';
 
-export const StyledCarousel = styled.div`
+export const Carousel = styled.div`
     flex: 1;
     overflow: hidden;
 `;
 
-export const StyledTransform = styled(FlexBox)<{ itemsToDisplay: number; i: number; margin: number }>`
+export const Transform = styled(FlexBox)<{ itemsToDisplay: number; i: number; margin: number }>`
     ${({ i, itemsToDisplay, margin }): string => `
         margin: 0 5px;
         transform: translate3d(calc(${-i * (100 / itemsToDisplay)}% - ${i * (margin / itemsToDisplay)}px), 0, 0);
