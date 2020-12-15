@@ -138,6 +138,10 @@ interface Media {
 
 export type MockTheme<T = any> = Record<string, T>;
 
+export interface NavProps {
+    darkMode: boolean;
+}
+
 export enum Platform {
     DESKTOP,
     MOBILE,

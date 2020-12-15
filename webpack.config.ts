@@ -71,7 +71,7 @@ export default (args: string[]): WebpackConfig => {
                     },
                 },
                 {
-                    test: /\.(png|jpe?g|gif|(woff|ttf|eot|svg))$/,
+                    test: /\.(png|jpe?g|gif|(woff|ttf|eot|svg|pdf))$/,
                     use: {
                         loader: 'file-loader',
                     },

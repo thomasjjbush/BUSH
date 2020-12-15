@@ -18,7 +18,7 @@ export const App: FunctionComponent = (): ReactElement => {
             <GraphQLContext.Provider value={client}>
                 <Global />
                 <Router>
-                    <Nav />
+                    <Nav darkMode={darkMode} />
                     <Suspense fallback={<Loading />}>
                         <Switch>
                             {routes.map(({ path, module: Module }) => (

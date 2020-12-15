@@ -1,9 +1,12 @@
-import React, { FunctionComponent, ReactElement } from 'react';
+import React, { FunctionComponent, ReactElement, useCallback } from 'react';
 import { useTheme } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Image } from '../';
 import { StyledNav, StyledActions } from './nav.style';
-import { Buttons, Icons, Theme } from './../../types';
+import { Buttons, Icons, Theme, NavProps as Props } from './../../types';
+
+import darkModeCV from './../../cv/thomas-bush-cv-dark-mode.pdf';
+import lightModeCV from './../../cv/thomas-bush-cv-light-mode.pdf';
 
 const social = [
     {
@@ -16,8 +19,9 @@ const social = [
     { icon: Icons.WHATSAPP, testID: 'whatsapp-icon', title: 'WhatsApp', url: 'tel:+447501274429' },
 ];
 
-export const Nav: FunctionComponent = (): ReactElement => {
+export const Nav: FunctionComponent<Props> = ({ darkMode }: Props): ReactElement => {
     const { images } = useTheme() as Theme;
+    const onClick = useCallback(() => window.open(darkMode ? darkModeCV : lightModeCV, '_blank'), [darkMode]);
 
     return (
         <StyledNav>
@@ -37,7 +41,7 @@ export const Nav: FunctionComponent = (): ReactElement => {
                         <Icon icon={icon} size={30} />
                     </a>
                 ))}
-                <Button design={Buttons.PRIMARY} onClick={() => null}>
+                <Button design={Buttons.PRIMARY} onClick={onClick}>
                     Download CV
                 </Button>
             </StyledActions>
