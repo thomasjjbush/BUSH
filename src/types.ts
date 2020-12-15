@@ -100,6 +100,7 @@ export interface HiddenTextProps {
 }
 
 export interface IconProps {
+    ariaLabel?: string;
     color?: string;
     disabled?: boolean;
     icon: Icons | string;

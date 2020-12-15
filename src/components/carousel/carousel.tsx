@@ -23,6 +23,7 @@ export const Carousel: FunctionComponent<Props> = ({
     return (
         <FlexBox data-test-id="carousel">
             <Icon
+                ariaLabel="previous"
                 color={color}
                 disabled={!index}
                 icon={Icons.LEFT}
@@ -36,7 +37,9 @@ export const Carousel: FunctionComponent<Props> = ({
                 </Styled.Transform>
             </Styled.Carousel>
             <Icon
+                ariaLabel="next"
                 color={color}
+                disabled={index === numberOfItems - 1}
                 onClick={(): void => setIndex(index + Math.min(numberOfItems - (index + itemsToDisplay), 1))}
                 icon={Icons.RIGHT}
                 size={30}

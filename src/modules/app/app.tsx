@@ -29,12 +29,15 @@ export const App: FunctionComponent = (): ReactElement => {
                         </Switch>
                     </Suspense>
                     <aside>
-                        <StyledToggle
-                            aria-label={`Enable ${darkMode ? 'light' : 'dark'} mode`}
-                            data-test-id="contrast-button"
-                            onClick={(): void => setDarkMode(!darkMode)}
-                        >
-                            <Icon color={theme.colors.text} icon={Icons.CONTRAST} size={50} />
+                        <StyledToggle>
+                            <Icon
+                                ariaLabel={`Enable ${darkMode ? 'light' : 'dark'} mode`}
+                                color={theme.colors.text}
+                                icon={Icons.CONTRAST}
+                                onClick={(): void => setDarkMode(!darkMode)}
+                                size={50}
+                                testID="contrast-button"
+                            />
                         </StyledToggle>
                     </aside>
                 </Router>
