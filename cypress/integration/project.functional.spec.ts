@@ -10,17 +10,17 @@ describe('project functional', () => {
         });
     });
 
-    describe('hero', () => {
+    describe('sticky nav', () => {
         it('user should be able to shrink hero height on scroll', () => {
-            cy.get('[data-test-id="hero"]').should('have.attr', 'style', 'height: 40vh;');
+            cy.get('[data-test-id="sticky"]').should('not.exist');
             cy.get('[data-test-id="scroller"]').scrollTo('bottom', { duration: 1000 });
-            cy.get('[data-test-id="hero"]').should('have.attr', 'style', 'height: 0vh; min-height: 54px;');
+            cy.get('[data-test-id="hero"]').should('be.visible');
         });
 
         it('user should be able to shrink hero height on rapid scroll', () => {
-            cy.get('[data-test-id="hero"]').should('have.attr', 'style', 'height: 40vh;');
+            cy.get('[data-test-id="sticky"]').should('not.exist');
             cy.get('[data-test-id="scroller"]').scrollTo('bottom');
-            cy.get('[data-test-id="hero"]').should('have.attr', 'style', 'height: 0vh; min-height: 54px;');
+            cy.get('[data-test-id="hero"]').should('be.visible');
         });
     });
 
@@ -28,9 +28,9 @@ describe('project functional', () => {
         it('user should be able to go to the end and start of the carousel', () => {
             cy.removeHeightRestrictions();
             cy.get('[data-test-id="carousel"]').scrollIntoView();
-            cy.multipleClick('[data-test-id="right-icon"]', { times: 3 });
+            cy.multipleClick('[data-test-id="right-icon"]', { times: 2 });
             cy.get('[data-test-id="right-icon"]').should('have.attr', 'disabled');
-            cy.multipleClick('[data-test-id="left-icon"]', { times: 3 });
+            cy.multipleClick('[data-test-id="left-icon"]', { times: 2 });
             cy.get('[data-test-id="left-icon"]').should('have.attr', 'disabled');
         });
     });
