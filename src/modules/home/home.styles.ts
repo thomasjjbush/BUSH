@@ -66,6 +66,7 @@ export const Grid = styled.div`
 
     @media only screen and (max-width: ${(props): number => props.theme.breakpoints.mobile}px) {
         grid-template-columns: auto;
+        grid-gap: 30px;
     }
 `;
 

@@ -90,3 +90,11 @@ export const StyledMain = styled.main<StyledProps<{ max?: number; padding?: numb
         flex-direction: column;
     }
 `;
+
+export const FlexBox = styled.div<{ direction?: string; align?: string; flex?: number; justify?: string }>`
+    display: flex;
+    ${(props): string => props.align && `align-items: ${props.align};`};
+    ${(props): string => props.direction && `flex-direction: ${props.direction};`};
+    ${(props): string => props.flex && `flex: ${props.flex};`};
+    ${(props): string => props.justify && `justify-content: ${props.justify};`};
+`;

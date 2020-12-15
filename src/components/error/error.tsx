@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactElement } from 'react';
+import { FlexBox } from '../../modules/theme/global';
 import { ErrorProps as Props, Errors } from '../../types';
-import { StyledCode, StyledError } from './error.style';
+import { StyledCode } from './error.style';
 
 export const errors: Errors = {
     400: 'Bad Request',
@@ -12,10 +13,10 @@ export const errors: Errors = {
 
 export const Error: FunctionComponent<Props> = ({ button, code }: Props): ReactElement => {
     return (
-        <StyledError>
+        <FlexBox align="center" direction="column" flex={1} justify="center">
             <StyledCode>{code}</StyledCode>
             {errors[code] && <p>{errors[code]}</p>}
             {button}
-        </StyledError>
+        </FlexBox>
     );
 };

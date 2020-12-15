@@ -1,7 +1,8 @@
 import React, { FunctionComponent, ReactElement, useEffect, useState } from 'react';
-import { StyledCarousel, StyledCarouselContainer, StyledTransform } from './carousel.style';
+import { StyledCarousel, StyledTransform } from './carousel.style';
 import { CarouselProps as Props, Icons } from '../../types';
 import { Icon } from '../';
+import { FlexBox } from '../../modules/theme/global';
 
 export const Carousel: FunctionComponent<Props> = ({
     children,
@@ -20,7 +21,7 @@ export const Carousel: FunctionComponent<Props> = ({
     }, [itemsToDisplay, index, numberOfItems]);
 
     return (
-        <StyledCarouselContainer data-test-id="carousel">
+        <FlexBox data-test-id="carousel">
             <Icon
                 color={color}
                 disabled={!index}
@@ -30,7 +31,7 @@ export const Carousel: FunctionComponent<Props> = ({
                 testID="left-icon"
             />
             <StyledCarousel>
-                <StyledTransform i={index} itemsToDisplay={itemsToDisplay} margin={margin}>
+                <StyledTransform align="top" i={index} itemsToDisplay={itemsToDisplay} margin={margin}>
                     {children}
                 </StyledTransform>
             </StyledCarousel>
@@ -42,6 +43,6 @@ export const Carousel: FunctionComponent<Props> = ({
                 size={30}
                 testID="right-icon"
             />
-        </StyledCarouselContainer>
+        </FlexBox>
     );
 };

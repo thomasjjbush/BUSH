@@ -9,7 +9,6 @@ export const StyledButton = styled.button`
     display: flex;
     font-size: 18px;
     font-weight: bold;
-    justify-content-space-between;
     padding: 10px 20px;
     margin: 20px 0 0 0;
 

@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { backgroundImage } from '../../utils';
 import { StyledProps } from '../../types';
+import { FlexBox } from '../theme/global';
 
 export const Description = styled.p`
     grid-column: 2 / 4;
@@ -22,18 +23,18 @@ export const Grid = styled.div<StyledProps<{ cols: number; colGap?: number; rowG
     }
 `;
 
-export const Hero = styled.div<StyledProps<{ url: string }>>`
-    align-items: center;
+export const Hero = styled(FlexBox)<StyledProps<{ url: string }>>`
     background: ${({ color, theme, url }): string =>
-        `linear-gradient(${color} 0, ${color} 100px, transparent 100%), ${backgroundImage(
+        `linear-gradient(${color} 0, ${color} 80px, transparent 100%), ${backgroundImage(
             url,
             theme.isWebpSupported && 'webp',
         )}`};
-    background-size: cover;
-    display: flex;
-    height: 100%;
+    background-attachment: fixed;
+    background-size: auto 50%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 40vh;
     flex-shrink: 0;
-    justify-content: center;
     transition: height 0.25s;
 `;
 
@@ -70,9 +71,7 @@ export const Responsibility = styled.div<StyledProps>`
     }
 `;
 
-export const SimilarContainer = styled.div`
-    display: flex;
-
+export const SimilarContainer = styled(FlexBox)`
     @media only screen and (max-width: ${(props): number => props.theme.breakpoints.tabletPortrait}px) {
         display: block;
     }
@@ -98,4 +97,27 @@ export const Similar = styled.div<StyledProps<{ url: string }>>`
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+`;
+
+const animation = keyframes`
+    from { opacity: 0 }
+    to { opacity: 1 }
+`;
+
+export const Sticky = styled(FlexBox)`
+    background-color: ${(props): string => props.color};
+    height: 80px;
+    left: 3px;
+    position: fixed;
+    right: 3px;
+    top: 60px;
+
+    a {
+        animation: ${animation} 1s forwards;
+        opacity: 0;
+    }
+`;
+
+export const StickyRef = styled.div`
+    height: 80px;
 `;

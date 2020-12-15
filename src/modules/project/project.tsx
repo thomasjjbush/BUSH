@@ -30,42 +30,33 @@ const Project: FunctionComponent = (): ReactElement => {
     const dispatch = useDispatch();
     const { slug } = useParams<{ slug: string }>();
     const project = useSelector<Store, ProjectState>(state => state.project);
-    const [scrolled, setScrolled] = useState(0);
-    const clientRef = useRef(null);
+    const [sticky, setSticky] = useState(false);
+
+    const stickyRef = useRef(null);
     const scrollerRef = useRef(null);
-    const throttle = useRef(null);
 
     useEffect(() => {
         dispatch(loadProject(graphQL, slug));
         return (): void => {
+            setSticky(false);
             if (scrollerRef?.current?.scrollTop) {
                 scrollerRef.current.scrollTop = 0;
             }
-            clearTimeout(throttle.current);
-            setScrolled(0);
             dispatch({ type: ProjectActions.CLEARED });
         };
     }, [slug]);
 
     const onScroll = useCallback(
         e => {
-            if (throttle?.current) return;
-            e.persist();
-            throttle.current = setTimeout(() => {
-                const newScroll = Math.ceil(e.target.scrollTop / 10);
-                throttle.current = null;
+            if (stickyRef.current.offsetTop - e.target.scrollTop <= 60 && !sticky) {
+                return setSticky(true);
+            }
 
-                if (newScroll < 0) return;
-
-                if (newScroll < 40) {
-                    return setScrolled(newScroll);
-                }
-                if (newScroll > 40 && scrolled < 40) {
-                    setScrolled(40);
-                }
-            }, 100);
+            if (stickyRef.current.offsetTop - e.target.scrollTop > 60 && sticky) {
+                return setSticky(false);
+            }
         },
-        [scrolled],
+        [sticky],
     );
 
     if (project.error) return <Error code={project.error} />;
@@ -76,22 +67,10 @@ const Project: FunctionComponent = (): ReactElement => {
 
     return (
         <StyledMain vertical>
-            <Styled.Hero
-                color={client.primaryColor}
-                data-test-id="hero"
-                style={{ height: 40 - scrolled + 'vh', minHeight: clientRef?.current?.clientHeight }}
-                url={hero.url}
-            >
-                <Client
-                    background={false}
-                    logo={client.logo.url}
-                    url={client.url}
-                    ref={clientRef}
-                    size={200}
-                    width={100}
-                />
-            </Styled.Hero>
-            <Scroller onScroll={onScroll} ref={scrollerRef}>
+            <Scroller ref={scrollerRef} onScroll={onScroll}>
+                <Styled.Hero align="flex-end" color={client.primaryColor} data-test-id="hero" url={hero.url}>
+                    <Styled.StickyRef ref={stickyRef} />
+                </Styled.Hero>
                 <Styled.Info>
                     <Styled.Grid cols={3} colGap={30}>
                         <Styled.Panel>
@@ -131,6 +110,11 @@ const Project: FunctionComponent = (): ReactElement => {
                     renderSimilar(labels.sameClient + client.name, sameClient, client.primaryColor)}
                 {Boolean(sameTag?.length) && renderSimilar(labels.sameTag + primaryTag.name, sameTag)}
             </Scroller>
+            {sticky && (
+                <Styled.Sticky align="center" justify="center" color={client.primaryColor}>
+                    <Client background={false} logo={client.logo.url} url={client.url} size={200} width={100} />
+                </Styled.Sticky>
+            )}
         </StyledMain>
     );
 };
