@@ -20,6 +20,7 @@ export const projectFragment = gql`
             logo {
                 url
             }
+            requiresInverseLogo
             slug
             url
         }

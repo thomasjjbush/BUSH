@@ -44,6 +44,7 @@ export interface Client {
     name: string;
     primaryColor: string;
     secondaryColor?: string;
+    requiresInverseLogo?: boolean;
     slug: string;
     url: string;
 }
@@ -55,7 +56,7 @@ export enum ClientsActions {
 export interface ClientProps {
     alt?: string;
     background?: boolean;
-    border?: string;
+    inverse?: boolean;
     logo: string;
     size: number;
     url?: string;

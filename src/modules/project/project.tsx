@@ -109,7 +109,14 @@ const Project: FunctionComponent = (): ReactElement => {
             </Scroller>
             {sticky && (
                 <Styled.Sticky align="center" justify="center" color={client.primaryColor} data-test-id="sticky">
-                    <Client background={false} logo={client.logo.url} url={client.url} size={200} width={100} />
+                    <Client
+                        background={false}
+                        logo={client.logo.url}
+                        url={client.url}
+                        size={200}
+                        width={100}
+                        inverse={client.requiresInverseLogo}
+                    />
                 </Styled.Sticky>
             )}
         </StyledMain>

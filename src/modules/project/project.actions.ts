@@ -28,6 +28,7 @@ export const loadProject = (graphQL: GraphQLClient, slug: string) => async (disp
             },
         });
     } catch (err) {
+        console.log(err);
         dispatch({ type: ProjectActions.ERROR, payload: 500 });
     }
 };

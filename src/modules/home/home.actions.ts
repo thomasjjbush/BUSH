@@ -32,6 +32,6 @@ export const loadProjects = (
             payload: projects,
         });
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
 };

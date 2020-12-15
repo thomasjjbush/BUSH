@@ -15,6 +15,7 @@ export const Description = styled.p`
 
     @media only screen and (max-width: ${(props): number => props.theme.breakpoints.mobile}px) {
         grid-column: auto;
+        margin-top: 30px;
     }
 `;
 
@@ -34,13 +35,12 @@ export const Hero = styled(FlexBox)<StyledProps<{ url: string }>>`
             `${gradient(color, color + ' 80px', 'transparent')}, ${backgroundImage(url, theme.isWebpSupported)}`}
         top center no-repeat;
     background-size: cover;
-    height: 40vh;
     flex-shrink: 0;
-
-    position: absolute;
-    top: 0;
+    height: 40vh;
     left: 0;
+    position: absolute;
     right: 0;
+    top: 0;
 
     + div {
         padding: 0px;
