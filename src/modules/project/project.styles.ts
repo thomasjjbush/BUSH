@@ -3,6 +3,11 @@ import { backgroundImage } from '../../utils';
 import { StyledProps } from '../../types';
 import { FlexBox } from '../theme/global';
 
+export const Container = styled.div`
+    margin-top: 40vh;
+    background-color: ${(props): string => props.theme.colors.background};
+`;
+
 export const Description = styled.p`
     grid-column: 2 / 4;
     margin: 0;
@@ -30,16 +35,25 @@ export const Hero = styled(FlexBox)<StyledProps<{ url: string }>>`
                 theme.isWebpSupported && 'webp',
             )}`}
         top center no-repeat;
-    background-attachment: fixed;
     background-size: cover;
     height: 40vh;
     flex-shrink: 0;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    + div {
+        padding: 0px;
+    }
 `;
 
 export const Info = styled.div`
     margin: auto;
     max-width: 1200px;
     padding: 30px;
+    z-index: 3;
 
     & > div:not(:last-child) {
         margin-bottom: 60px;
@@ -105,10 +119,11 @@ const animation = keyframes`
 export const Sticky = styled(FlexBox)`
     background-color: ${(props): string => props.color};
     height: 60px;
-    left: 3px;
+    left: 0;
     position: fixed;
-    right: 3px;
+    right: 0;
     top: 60px;
+    z-index: 3;
 
     a {
         animation: ${animation} 1s forwards;

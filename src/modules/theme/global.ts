@@ -82,6 +82,7 @@ export const StyledMain = styled.main<StyledProps<{ max?: number; padding?: numb
     flex: 1;
     overflow: hidden;
     padding: ${(props): number => props.padding || 0}px;
+    position: relative;
     margin: ${(props): string => (props.max ? 'auto' : 'none')};
     max-width: ${(props): string => (props.max ? `${props.max}px` : 'none')};
     width: 100%;

@@ -8,4 +8,5 @@ export const StyledToggle = styled(StyledButton)`
     position: absolute;
     background: transparent;
     border: 0;
+    z-index: 5;
 `;

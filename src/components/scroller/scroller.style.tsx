@@ -6,6 +6,7 @@ export const StyledScroller = styled.div`
     overflow: scroll;
     padding: 3px;
     scroll-behavior: smooth;
+    z-index: 2;
 
     ::-webkit-scrollbar {
         display: none;
