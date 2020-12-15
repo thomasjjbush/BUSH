@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button should match snapshot 1`] = `
-<styled.section
+<styled.div
+  align="center"
+  direction="column"
+  flex={1}
+  justify="center"
   styles="
-    align-items: center;
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;;
+    flex-direction: column;;
+    flex: 1;;
+    justify-content: center;;
 "
 >
   <styled.h1
@@ -24,5 +28,5 @@ exports[`Button should match snapshot 1`] = `
   <button>
     Button
   </button>
-</styled.section>
+</styled.div>
 `;

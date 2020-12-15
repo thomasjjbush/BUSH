@@ -37,41 +37,23 @@ exports[`App should match snapshot 1`] = `
         </Switch>
       </Suspense>
       <aside>
-        <Styled(styled.button)
-          aria-label="Enable light mode"
-          data-test-id="contrast-button"
-          onClick={[Function]}
+        <styled.div
           styles="
-    align-self: flex-start;
-    align-items: center;
-    appearance: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    font-size: 18px;
-    font-weight: bold;
-    justify-content-space-between;
-    padding: 10px 20px;
-    margin: 20px 0 0 0;
-
-    img {
-        margin-left: 10px;
-    }
-
     bottom: 30px;
     right: 30px;
-    margin: 0;
     position: absolute;
-    background: transparent;
-    border: 0;
+    z-index: 5;
 "
         >
           <Icon
+            ariaLabel="Enable light mode"
             color="colors.text"
             icon="e9d5"
+            onClick={[Function]}
             size={50}
+            testID="contrast-button"
           />
-        </Styled(styled.button)>
+        </styled.div>
       </aside>
     </BrowserRouter>
   </ContextProvider>

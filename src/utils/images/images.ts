@@ -18,7 +18,10 @@ export const imageOptions = (url: string, options?: Options): string => {
     return url + params.join('');
 };
 
-export const backgroundImage = (url: string, fm: string): string => `url(${imageOptions(url, { fm, w: 750 })})`;
+export const backgroundImage = (url: string, isWebpSupported?: boolean): string =>
+    `url(${imageOptions(url, { fm: isWebpSupported && 'webp', w: 750 })})`;
+
+export const gradient = (...args: (number | string)[]): string => `linear-gradient(${args.join(',')})`;
 
 export const isImageLandscape = (src: string): Promise<boolean> =>
     new Promise(resolve => {

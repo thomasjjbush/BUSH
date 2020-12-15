@@ -97,8 +97,8 @@ const Project: FunctionComponent = (): ReactElement => {
                             ))}
                         </Styled.Grid>
                         {project.item.video && (
-                            <video style={{ width: '100%' }} controls>
-                                <source src={project.item.video.url} />{' '}
+                            <video controls playsInline>
+                                <source src={project.item.video.url} />
                             </video>
                         )}
                     </Styled.Info>

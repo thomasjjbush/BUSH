@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { backgroundImage } from '../../utils';
 import { StyledProps } from '../../types';
 import { FlexBox } from '../theme/global';
+import { gradient } from '../../utils/images/images';
 
 export const Container = styled.div`
     margin-top: 40vh;
@@ -30,10 +31,7 @@ export const Grid = styled.div<StyledProps<{ cols: number; colGap?: number; rowG
 
 export const Hero = styled(FlexBox)<StyledProps<{ url: string }>>`
     background: ${({ color, theme, url }): string =>
-            `linear-gradient(${color} 0, ${color} 80px, transparent 100%), ${backgroundImage(
-                url,
-                theme.isWebpSupported && 'webp',
-            )}`}
+            `${gradient(color, color + ' 80px', 'transparent')}, ${backgroundImage(url, theme.isWebpSupported)}`}
         top center no-repeat;
     background-size: cover;
     height: 40vh;
@@ -57,6 +55,10 @@ export const Info = styled.div`
 
     & > div:not(:last-child) {
         margin-bottom: 60px;
+    }
+
+    video {
+        width: 100%;
     }
 `;
 
@@ -91,10 +93,7 @@ export const SimilarContainer = styled(FlexBox)`
 
 export const Similar = styled.div<StyledProps<{ url: string }>>`
     background: ${({ color, theme, url }): string =>
-        `linear-gradient(90deg, ${color} 0%, transparent 100%), ${backgroundImage(
-            url,
-            theme.isWebpSupported && 'webp',
-        )}`};
+        `${gradient('90deg', color, 'transparent')}, ${backgroundImage(url, theme.isWebpSupported)}`};
     background-size: cover;
     flex: 1;
     height: 100px;
