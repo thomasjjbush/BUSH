@@ -25,17 +25,15 @@ export const Grid = styled.div<StyledProps<{ cols: number; colGap?: number; rowG
 
 export const Hero = styled(FlexBox)<StyledProps<{ url: string }>>`
     background: ${({ color, theme, url }): string =>
-        `linear-gradient(${color} 0, ${color} 80px, transparent 100%), ${backgroundImage(
-            url,
-            theme.isWebpSupported && 'webp',
-        )}`};
+            `linear-gradient(${color} 0, ${color} 80px, transparent 100%), ${backgroundImage(
+                url,
+                theme.isWebpSupported && 'webp',
+            )}`}
+        top center no-repeat;
     background-attachment: fixed;
-    background-size: auto 50%;
-    background-repeat: no-repeat;
-    background-position: top center;
+    background-size: cover;
     height: 40vh;
     flex-shrink: 0;
-    transition: height 0.25s;
 `;
 
 export const Info = styled.div`
@@ -106,7 +104,7 @@ const animation = keyframes`
 
 export const Sticky = styled(FlexBox)`
     background-color: ${(props): string => props.color};
-    height: 80px;
+    height: 60px;
     left: 3px;
     position: fixed;
     right: 3px;
@@ -119,5 +117,5 @@ export const Sticky = styled(FlexBox)`
 `;
 
 export const StickyRef = styled.div`
-    height: 80px;
+    height: 60px;
 `;
