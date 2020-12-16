@@ -27,6 +27,7 @@ const shared = (color: string, icon: string, size: number): string => `
 
 export const ClickableIcon = styled(StyledButton)<Props>`
     ${(props): string => shared(props.color || props.theme.colors.brand, props.icon, props.size)}
+    align-self: auto;
     appearance: none;
     background: transparent;
     border: 0;

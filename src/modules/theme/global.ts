@@ -57,22 +57,21 @@ export const Global = createGlobalStyle<StyledProps>`
         }
     }
 
-    a, button, input, p, select, table {
+    a, button, input, li, p, select, table {
         font-family: 'Raleway', sans-serif;
     }
 
-    p {
-        
+    li, p {
         font-size: 20px;
     }
 
     @font-face {
         font-family: 'icomoon';
         src: url(https://assets.ctfassets.net/e85zpqq4b2pc/kUqasbyE…NaEeXK/e45c4da93623e96f9c35d2923dd226c7/icons.eot);
-        src: url('https://assets.ctfassets.net/e85zpqq4b2pc/kUqasbyE…NaEeXK/e45c4da93623e96f9c35d2923dd226c7/icons.eot?#iefix') format('embedded-opentype'), 
+        src: url(https://assets.ctfassets.net/e85zpqq4b2pc/kUqasbyE…NaEeXK/e45c4da93623e96f9c35d2923dd226c7/icons.eot?#iefix) format('embedded-opentype'), 
              url(https://assets.ctfassets.net/e85zpqq4b2pc/3QQ5NdjvE2YSOArgeYMEhx/11eae45950e74136401fc1cc2b4509a7/icons.woff) format('woff'), 
              url(https://assets.ctfassets.net/e85zpqq4b2pc/4dcDVFnRJrQrZ8BDiHTd8F/e5ff802efc33a2cc4e1d1879c622327d/icons.ttf) format('truetype'),
-             url('https://images.ctfassets.net/e85zpqq4b2pc/5VBXsOEP…lwUccQ/f65bad72e6323950c1959e498ade9e97/icons.svg#icons') format('svg');
+             url(https://images.ctfassets.net/e85zpqq4b2pc/5VBXsOEP…lwUccQ/f65bad72e6323950c1959e498ade9e97/icons.svg#icons) format('svg');
       }
 `;
 

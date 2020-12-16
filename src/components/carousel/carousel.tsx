@@ -21,7 +21,7 @@ export const Carousel: FunctionComponent<Props> = ({
     }, [itemsToDisplay, index, numberOfItems]);
 
     return (
-        <FlexBox data-test-id="carousel">
+        <FlexBox align="center" data-test-id="carousel">
             <Icon
                 ariaLabel="previous"
                 color={color}

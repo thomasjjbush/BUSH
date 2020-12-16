@@ -9,9 +9,13 @@ export const Container = styled.div`
     background-color: ${(props): string => props.theme.colors.background};
 `;
 
-export const Description = styled.p`
+export const Description = styled.div<StyledProps>`
     grid-column: 2 / 4;
-    margin: 0;
+
+    a {
+        color: ${(props): string => props.theme.colors.brand};
+        text-decoration: underline;
+    }
 
     @media only screen and (max-width: ${(props): number => props.theme.breakpoints.mobile}px) {
         grid-column: auto;
@@ -63,6 +67,7 @@ export const Info = styled.div`
 `;
 
 export const Panel = styled.div<StyledProps>`
+    align-self: flex-start;
     background-color: ${(props): string => props.theme.colors.offset};
     padding: 30px;
 `;

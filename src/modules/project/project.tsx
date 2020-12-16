@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent, ReactElement, useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import MarkDown from 'react-markdown';
 import { Carousel, Client, Error, HiddenText, Icon, Image, Scroller, Tags } from '../../components';
 import { StyledMain } from '../theme/global';
 import { labels } from '../../config';
@@ -73,7 +74,9 @@ const Project: FunctionComponent = (): ReactElement => {
                                 <h1>{name}</h1>
                                 <Tags tags={tags.items} />
                             </Styled.Panel>
-                            <Styled.Description>{description}</Styled.Description>
+                            <Styled.Description>
+                                <MarkDown>{description}</MarkDown>
+                            </Styled.Description>
                         </Styled.Grid>
                         {Boolean(gallery.total) && (
                             <Carousel
