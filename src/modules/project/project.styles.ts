@@ -17,6 +17,15 @@ export const Description = styled.div<StyledProps>`
         text-decoration: underline;
     }
 
+    p {
+        &:first-of-type {
+            margin-top: 0;
+        }
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
     @media only screen and (max-width: ${(props): number => props.theme.breakpoints.mobile}px) {
         grid-column: auto;
         margin-top: 30px;
@@ -36,8 +45,8 @@ export const Grid = styled.div<StyledProps<{ cols: number; colGap?: number; rowG
 
 export const Hero = styled(FlexBox)<StyledProps<{ url: string }>>`
     background: ${({ color, theme, url }): string =>
-            `${gradient(color, color + ' 80px', 'transparent')}, ${backgroundImage(url, theme.isWebpSupported)}`}
-        top center no-repeat;
+            `${gradient(color, color + ' 80px', 'transparent')}, ${backgroundImage(url, theme.isWebpSupported, 2000)}`}
+        center no-repeat;
     background-size: cover;
     flex-shrink: 0;
     height: 40vh;

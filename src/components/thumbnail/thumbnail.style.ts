@@ -5,7 +5,7 @@ import { StyledProps } from '../../types';
 export const StyledBackground = styled.div<StyledProps<{ url: string }>>`
     align-items: center;
     background: linear-gradient(${(props): string => props.color} 0%, transparent 100%),
-        ${({ theme, url }): string => backgroundImage(url, theme.isWebpSupported && 'webp')};
+        ${({ theme, url }): string => backgroundImage(url, theme.isWebpSupported)};
     background-size: cover;
     display: flex;
     flex-direction: column;

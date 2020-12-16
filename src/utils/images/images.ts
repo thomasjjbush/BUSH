@@ -18,8 +18,8 @@ export const imageOptions = (url: string, options?: Options): string => {
     return url + params.join('');
 };
 
-export const backgroundImage = (url: string, isWebpSupported?: boolean): string =>
-    `url(${imageOptions(url, { fm: isWebpSupported && 'webp', w: 750 })})`;
+export const backgroundImage = (url: string, isWebpSupported?: boolean, width?: number): string =>
+    `url(${imageOptions(url, { fm: isWebpSupported && 'webp', w: width || 750 })})`;
 
 export const gradient = (...args: (number | string)[]): string => `linear-gradient(${args.join(',')})`;
 

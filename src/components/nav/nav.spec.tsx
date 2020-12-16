@@ -4,6 +4,6 @@ import { Nav } from './nav';
 
 describe('Nav', () => {
     it('should match snapshot', () => {
-        expect(shallow(<Nav />)).toMatchSnapshot();
+        expect(shallow(<Nav darkMode={true} />)).toMatchSnapshot();
     });
 });

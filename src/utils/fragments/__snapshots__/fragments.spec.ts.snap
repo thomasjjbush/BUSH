@@ -23,6 +23,7 @@ exports[`fragments projectFragment should match snapshot 1`] = `
             logo {
                 url
             }
+            requiresInverseLogo
             slug
             url
         }

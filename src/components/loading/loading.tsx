@@ -9,8 +9,8 @@ export const Loading: FunctionComponent = (): ReactElement => {
 
     return (
         <StyledLoading data-test-id="loading">
-            <h1>Loading</h1>
-            <Image src={images.loading} size={200} width={50} />
+            <p>LOADING</p>
+            <Image src={images.loading} size={200} width={30} />
         </StyledLoading>
     );
 };
