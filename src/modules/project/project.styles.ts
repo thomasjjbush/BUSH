@@ -50,7 +50,7 @@ export const Grid = styled.div<StyledProps<{ cols: number; colGap?: number; rowG
 
 export const Hero = styled(FlexBox)<StyledProps<{ url: string }>>`
     background: ${({ color, theme, url }): string =>
-            `${gradient(color, color + ' 80px', 'transparent')}, ${backgroundImage(url, theme.isWebpSupported, 2000)}`}
+            `${gradient(color, color + ' 80px', 'transparent')}, ${backgroundImage(url, theme.isWebpSupported, 1500)}`}
         center no-repeat;
     background-size: cover;
     flex-shrink: 0;

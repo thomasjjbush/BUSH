@@ -34,7 +34,7 @@ exports[`Project should match snapshot 1`] = `
     function (props) { return props.flex && \\"flex: \\" + props.flex + \\";\\"; };
     function (props) { return props.justify && \\"justify-content: \\" + props.justify + \\";\\"; };
 
-    background: linear-gradient(client-primaryColorclient-primaryColor 80pxtransparent), url(project-hero-url?fm=webp&w=2000)
+    background: linear-gradient(client-primaryColorclient-primaryColor 80pxtransparent), url(project-hero-url?fm=webp&w=1500)
         center no-repeat;
     background-size: cover;
     flex-shrink: 0;
@@ -51,7 +51,7 @@ exports[`Project should match snapshot 1`] = `
         url="project-hero-url"
       >
         <div
-          className="sc-gsTCUz sc-jSgupP chyNUC jNrSDJ"
+          className="sc-gsTCUz sc-jSgupP chyNUC gkXrpf"
           color="client-primaryColor"
           data-test-id="hero"
         >
