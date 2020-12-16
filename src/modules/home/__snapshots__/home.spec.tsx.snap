@@ -1,0 +1,389 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should match snapshot 1`] = `
+<Home>
+  <styled.main
+    max={2000}
+    padding={30}
+    styles="
+    display: flex;
+    flex-direction: auto;
+    flex: 1;
+    overflow: hidden;
+    padding: 30px;
+    position: relative;
+    margin: auto;
+    max-width: 2000px;
+    width: 100%;
+
+    @media only screen and (max-width: theme.breakpoints.tabletPortraitpx) {
+        flex-direction: column;
+    }
+"
+  >
+    <main
+      className="sc-dQppl cKGjcR"
+      max={2000}
+    >
+      <styled.section
+        styles="
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+
+    @media only screen and (max-width: theme.breakpoints.tabletPortraitpx) {
+        flex: 1 0 0;
+        margin-bottom: 30px;
+        margin-right: 0 !important;
+        max-height: 40%;
+        max-width: none;
+    }
+
+    @media only screen and (max-width: theme.breakpoints.mobilepx) {
+        display: none;
+    }
+"
+      >
+        <section
+          className="sc-gsTCUz dVXaAZ"
+        >
+          <styled.section
+            styles="
+    align-self: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    background-color: theme.colors.offset;
+    padding: 30px;
+"
+          >
+            <section
+              className="sc-bdfBwQ ioSnma"
+            >
+              <styled.div
+                styles="
+    margin-bottom: 30px;
+"
+              >
+                <div
+                  className="sc-dlfnbm kCPdvt"
+                >
+                  <h1>
+                    laebls.name
+                  </h1>
+                  <h2>
+                    laebls.jobTitle
+                  </h2>
+                  <Tags
+                    tags={
+                      Array [
+                        Object {
+                          "name": "tag-name",
+                          "slug": "tag-slug",
+                        },
+                      ]
+                    }
+                  />
+                </div>
+              </styled.div>
+              <Scroller>
+                <div>
+                  <styled.p
+                    styles="
+    margin: 0 0 30px 0;
+"
+                  >
+                    <p
+                      className="sc-hKgILt hynpnB"
+                    >
+                      laebls.aboutMe
+                    </p>
+                  </styled.p>
+                  <h2>
+                    laebls.experience
+                  </h2>
+                  <styled.div
+                    key="0"
+                    styles="
+    display: grid;
+    grid-template-columns: 25% 30px auto;
+"
+                  >
+                    <div
+                      className="sc-jSgupP iXrUPc"
+                    >
+                      <styled.p
+                        styles="
+    margin: 0;
+"
+                      >
+                        <p
+                          className="sc-eCssSg bRCGol"
+                        >
+                          Jan 1970
+                           - 
+                          Jan 1970
+                        </p>
+                      </styled.p>
+                      <styled.div
+                        styles="
+    :before,
+    :after {
+        background-color: theme.colors.brand;
+        content: '';
+        display: block;
+        margin: auto;
+    }
+    :before {
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+    }
+
+    :after {
+        height: 100%;
+        width: 2px;
+    }
+"
+                      >
+                        <div
+                          className="sc-crrsfI hoTnwh"
+                        />
+                      </styled.div>
+                      <styled.div
+                        styles="
+    flex: 1;
+    padding-left: 30px;
+"
+                      >
+                        <div
+                          className="sc-gKsewC cEJyVK"
+                        >
+                          <h2>
+                            title
+                          </h2>
+                          <h3>
+                            company
+                          </h3>
+                          <p>
+                            responsibilities
+                          </p>
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </div>
+              </Scroller>
+            </section>
+          </styled.section>
+        </section>
+      </styled.section>
+      <styled.section
+        styles="
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+"
+      >
+        <section
+          className="sc-jrAGrp jjoPaf"
+        >
+          <h1>
+            Projects (
+            1
+            /
+            10
+            )
+          </h1>
+          <styled.div
+            styles="
+    display: flex;
+    flex-shrink: 0;
+    margin-bottom: 15px;
+"
+          >
+            <div
+              className="sc-iBPRYJ ftqSnZ"
+            >
+              <styled.input
+                aria-label="laebls.search"
+                data-test-id="search-input"
+                onChange={[Function]}
+                placeholder="laebls.search"
+                styles="
+    background-color: theme.colors.highlight;
+    border: solid 2px theme.colors.border;
+    border-radius: 5px;
+    color: theme.colors.text;
+    flex: 1;
+    font-size: 16px;
+    height: 40px;
+    padding: 0 10px;
+"
+                type="text"
+                value=""
+              >
+                <input
+                  aria-label="laebls.search"
+                  className="sc-pFZIQ fzTwpq"
+                  data-test-id="search-input"
+                  onChange={[Function]}
+                  placeholder="laebls.search"
+                  type="text"
+                  value=""
+                />
+              </styled.input>
+              <styled.select
+                aria-label="laebls.selectOrder"
+                data-test-id="select-order"
+                onChange={[Function]}
+                styles="
+    appearance: none;
+    background-color: theme.colors.highlight;
+    border: solid 2px theme.colors.border;
+    border-radius: 5px;
+    color: theme.colors.text;
+    flex-shrink: 0;
+    font-size: 16px;
+    margin-left: 15px;
+    padding: 0 5px;
+    width: 60px;
+"
+                value="year_DESC"
+              >
+                <select
+                  aria-label="laebls.selectOrder"
+                  className="sc-kEjbxe efkPQT"
+                  data-test-id="select-order"
+                  onChange={[Function]}
+                  value="year_DESC"
+                >
+                  <option
+                    key="year_DESC"
+                    value="year_DESC"
+                  >
+                    Latest
+                  </option>
+                  <option
+                    key="year_ASC"
+                    value="year_ASC"
+                  >
+                    Oldest
+                  </option>
+                </select>
+              </styled.select>
+              <styled.select
+                aria-label="laebls.filterByClient"
+                data-test-id="select-client"
+                onChange={[Function]}
+                styles="
+    appearance: none;
+    background-color: theme.colors.highlight;
+    border: solid 2px theme.colors.border;
+    border-radius: 5px;
+    color: theme.colors.text;
+    flex-shrink: 0;
+    font-size: 16px;
+    margin-left: 15px;
+    padding: 0 5px;
+    width: 60px;
+"
+                value=""
+              >
+                <select
+                  aria-label="laebls.filterByClient"
+                  className="sc-kEjbxe efkPQT"
+                  data-test-id="select-client"
+                  onChange={[Function]}
+                  value=""
+                >
+                  <option
+                    key=""
+                    value=""
+                  >
+                    All
+                  </option>
+                  <option
+                    key="client-name"
+                    value="client-name"
+                  >
+                    client-name
+                  </option>
+                </select>
+              </styled.select>
+            </div>
+          </styled.div>
+          <Scroller
+            loadMore={[Function]}
+            numberOfItems={1}
+            testID="project-scroller"
+            totalItems={10}
+          >
+            <styled.div
+              styles="
+    display: grid;
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    grid-gap: 10px;
+    margin: 1px;
+
+    @media only screen and (max-width: theme.breakpoints.mobilepx) {
+        grid-template-columns: auto;
+        grid-gap: 30px;
+    }
+"
+            >
+              <div
+                className="sc-fubCfw MaiIs"
+              >
+                <Link
+                  data-test-id="project"
+                  key="project-slug"
+                  to="/projects/project-slug"
+                >
+                  <LinkAnchor
+                    data-test-id="project"
+                    href="/projects/project-slug"
+                    navigate={[Function]}
+                  >
+                    <a
+                      data-test-id="project"
+                      href="/projects/project-slug"
+                      onClick={[Function]}
+                    >
+                      <Thumbnail
+                        client={
+                          <Client
+                            alt="client-name"
+                            logo="client-logo-url"
+                            size={200}
+                            width={100}
+                          />
+                        }
+                        color="client-primaryColor"
+                        name="project-name"
+                        url="project-thumbnail-url"
+                      />
+                      <Tags
+                        tags={
+                          Array [
+                            Object {
+                              "name": "tag-name",
+                              "slug": "tag-slug",
+                            },
+                          ]
+                        }
+                      />
+                    </a>
+                  </LinkAnchor>
+                </Link>
+              </div>
+            </styled.div>
+          </Scroller>
+        </section>
+      </styled.section>
+    </main>
+  </styled.main>
+</Home>
+`;
