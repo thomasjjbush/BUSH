@@ -39,7 +39,7 @@ export const Carousel: FunctionComponent<Props> = ({
             <Icon
                 ariaLabel="next"
                 color={color}
-                disabled={index === numberOfItems - 1}
+                disabled={index === numberOfItems - Math.max(1, itemsToDisplay)}
                 onClick={(): void => setIndex(index + Math.min(numberOfItems - (index + itemsToDisplay), 1))}
                 icon={Icons.RIGHT}
                 size={30}

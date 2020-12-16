@@ -1,5 +1,7 @@
 import { imageScales, labels, orders, routes } from './';
 
+jest.mock('./', () => jest.requireActual('./'));
+
 describe('configs', () => {
     describe('imageScales', () => {
         it('should match snapshot', () => {

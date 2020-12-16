@@ -4,6 +4,11 @@ import { StyledProps } from '../../types';
 import { FlexBox } from '../theme/global';
 import { gradient } from '../../utils/images/images';
 
+const animation = keyframes`
+    from { opacity: 0 }
+    to { opacity: 1 }
+`;
+
 export const Container = styled.div`
     margin-top: 40vh;
     background-color: ${(props): string => props.theme.colors.background};
@@ -124,9 +129,8 @@ export const Similar = styled.div<StyledProps<{ url: string }>>`
     }
 `;
 
-const animation = keyframes`
-    from { opacity: 0 }
-    to { opacity: 1 }
+export const SimilarTitle = styled.p`
+    margin: 30px;
 `;
 
 export const Sticky = styled(FlexBox)`

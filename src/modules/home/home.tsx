@@ -27,7 +27,7 @@ const Home: FunctionComponent = (): ReactElement => {
 
     const cv = useRef(null);
     const [client, setClient] = useState('');
-    const [order, setOrder] = useState();
+    const [order, setOrder] = useState(orders[0].value);
     const [search, setSearch] = useState('');
 
     useEffect(() => {

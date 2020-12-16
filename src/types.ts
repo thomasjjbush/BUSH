@@ -132,7 +132,7 @@ export interface ImageProps {
 
 interface Media {
     description?: string;
-    name: string;
+    name?: string;
     url: string;
 }
 
@@ -154,12 +154,12 @@ export interface Project {
     gallery?: Gallery<Media>;
     hero: Media;
     name: string;
-    primaryTag?: Tag;
-    responsibilities: Collection<Responsibility>;
+    primaryTag: Tag;
+    responsibilities?: Collection<Responsibility>;
     slug: string;
     tags: Collection<Tag>;
     thumbnail: Media;
-    video: Media;
+    video?: Media;
     year: number;
 }
 

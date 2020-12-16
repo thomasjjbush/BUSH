@@ -6,7 +6,7 @@ import { mockTheme } from './src/test-utils/mock-theme/mock-theme';
 
 configure({ adapter: new Adapter() });
 
-const theme = mockTheme(initTheme(false));
+const theme = mockTheme(initTheme(false, true));
 
 expect.addSnapshotSerializer(
     createSerializer({
@@ -23,6 +23,7 @@ expect.addSnapshotSerializer(
                               }),
                     ),
                 ]
+                    .filter(Boolean)
                     .join('')
                     .replace(/,(?!\s)/gm, '');
 
@@ -39,6 +40,17 @@ jest.mock('styled-components', () => {
         __esModule: true,
         createGlobalStyle: actual.createGlobalStyle,
         default: actual.default,
+        keyframes: actual.keyframes,
+        ThemeProvider: actual.ThemeProvider,
         useTheme: jest.fn(() => theme),
     };
 });
+jest.mock('./src/config', () => ({
+    ...jest.requireActual('./src/config'),
+    labels: Object.keys(jest.requireActual('./src/config').labels).reduce(
+        (acc, key) => ({ ...acc, [key]: `laebls.${key}` }),
+        {},
+    ),
+}));
+jest.mock('./src/cv/thomas-bush-cv-dark-mode.pdf', () => 'dark-mode.pdf');
+jest.mock('./src/cv/thomas-bush-cv-light-mode.pdf', () => 'light-mode.pdf');

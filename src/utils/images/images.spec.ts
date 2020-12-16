@@ -3,7 +3,7 @@ import { backgroundImage, imageOptions, isImageLandscape, responsiveImage } from
 describe('images', () => {
     describe('backgroundImage', () => {
         it('should return correct string', () => {
-            expect(backgroundImage('http://mock-url', true)).toBe('url(http://mock-url?fm=webp&w=750)');
+            expect(backgroundImage('http://mock-url', true, 888)).toBe('url(http://mock-url?fm=webp&w=888)');
         });
     });
 

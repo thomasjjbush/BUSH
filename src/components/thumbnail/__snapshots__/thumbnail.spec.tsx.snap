@@ -9,7 +9,7 @@ exports[`Thumbnail should match snapshot 1`] = `
     styles="
     align-items: center;
     background: linear-gradient(red 0%, transparent 100%),
-        url(url?w=750);
+        url(url?fm=webp&w=750);
     background-size: cover;
     display: flex;
     flex-direction: column;

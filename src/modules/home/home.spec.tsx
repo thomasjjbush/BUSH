@@ -1,73 +1,94 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { mockStore } from '../../test-utils/mock-store/mock-store';
+import { ReactNode } from 'react';
+import { ReactWrapper } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import Home from './home';
 import { loadHomePage, loadProjects } from './home.actions';
-import { homePageQuery, projectsQuery } from './home.queries';
-import { MockStoreEnhanced } from 'redux-mock-store';
-import { GraphQLClient } from 'graphql-request';
+import { Input, Select } from './home.styles';
+import { Scroller } from '../../components';
+import { renderModule } from '../../test-utils/render-module/render-module';
 
 jest.mock('../../utils', () => ({
     ...jest.requireActual('../../utils'),
-    useGraphQL: jest.fn().mockReturnValueOnce('x'),
+    useGraphQL: jest.fn().mockReturnValue('graphQLContext'),
+}));
+
+jest.mock('./home.actions', () => ({
+    loadHomePage: jest.fn().mockReturnValue({ type: 'MOCK_LOAD_HOME_PAGE' }),
+    loadProjects: jest.fn().mockReturnValue({ type: 'MOCK_LOAD_PROJECTS' }),
+}));
+
+jest.mock('../../components', () => ({
+    Client: (): string => '',
+    Scroller: ({ children }: { children: ReactNode[] }): ReactNode => children as ReactNode,
+    Tags: (): string => '',
+    Thumbnail: (): string => '',
 }));
 
 describe('Home', () => {
-    // describe('Home UI', () => {
-    //     it('should match snapshot', () => {
-    //         expect(shallow(<Home />)).toMatchSnapshot();
-    //     });
-    // });
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
 
-    describe('Home actions', () => {
-        const graphQL: Partial<GraphQLClient> = {};
-        let store: MockStoreEnhanced;
+    it('should match snapshot', () => {
+        expect(renderModule(Home).find(Home)).toMatchSnapshot();
+    });
 
-        beforeEach(() => {
-            store = mockStore();
-        });
+    it('should invoke loadHomePage on mount', () => {
+        renderModule(Home);
+        expect(loadHomePage).toHaveBeenCalledTimes(1);
+    });
 
-        describe('loadHomePage', () => {
-            it('should dispatch correct actions if query is successful', async () => {
-                graphQL.request = jest.fn().mockResolvedValue({
-                    clients: { items: ['clients'] },
-                    employment: { items: ['employment'] },
-                    projects: { items: ['projects'] },
-                    tags: { items: ['tags'] },
-                });
-                await store.dispatch<any>(loadHomePage(graphQL as GraphQLClient));
+    it.each`
+        action             | component | expectedArgs                                          | initialState   | selector
+        ${'search input'}  | ${Input}  | ${{ client: '', order: 'year_DESC', search: 'xoxo' }} | ${''}          | ${'first'}
+        ${'order select'}  | ${Select} | ${{ client: '', order: 'xoxo', search: '' }}          | ${'year_DESC'} | ${'first'}
+        ${'client select'} | ${Select} | ${{ client: 'xoxo', order: 'year_DESC', search: '' }} | ${''}          | ${'last'}
+    `(
+        'should update state and dispatch action on $action chane',
+        ({
+            component,
+            expectedArgs,
+            initialState,
+            selector,
+        }: {
+            component: ReactWrapper;
+            expectedArgs: Record<string, string>;
+            initialState: string;
+            selector: 'first' | 'last';
+        }) => {
+            const wrapper = renderModule(Home);
+            const elem = wrapper.find(component)[selector]();
+            expect(elem.prop('value')).toBe(initialState);
 
-                expect(graphQL.request).toHaveBeenCalledTimes(1);
-                expect(graphQL.request).toHaveBeenCalledWith(homePageQuery);
-                expect(store.getActions()).toEqual([
-                    { type: 'clients/LOADED', payload: ['clients'] },
-                    { type: 'employment/LOADED', payload: ['employment'] },
-                    { type: 'projects/LOADED', payload: { items: ['projects'] } },
-                    { type: 'tag/LOADED', payload: ['tags'] },
-                ]);
+            act(() => {
+                elem.prop('onChange')({ target: { value: 'xoxo' } });
             });
-        });
+            wrapper.update();
 
-        describe('loadProjects', () => {
-            it('should dispatch correct actions if skip argument is provided', async () => {
-                graphQL.request = jest.fn().mockResolvedValue({ projects: { items: [2], total: 2 } });
-                await store.dispatch<any>(loadProjects(graphQL as GraphQLClient, { skip: 1 }));
+            expect(
+                wrapper
+                    .find(component)
+                    [selector]()
+                    .prop('value'),
+            ).toBe('xoxo');
+            expect(loadProjects).toHaveBeenCalledTimes(1);
+            expect(loadProjects).toHaveBeenCalledWith('graphQLContext', expectedArgs);
+        },
+    );
 
-                expect(graphQL.request).toHaveBeenCalledTimes(1);
-                expect(graphQL.request).toHaveBeenCalledWith(projectsQuery, { skip: 1 });
-                expect(store.getActions()).toEqual([
-                    { type: 'projects/LOADING_MORE' },
-                    { type: 'projects/LOADED_MORE', payload: { items: [2], total: 2 } },
-                ]);
-            });
+    it('should load more projects on click', () => {
+        const wrapper = renderModule(Home);
+        wrapper
+            .find(Scroller)
+            .last()
+            .prop('loadMore')();
 
-            it('should dispatch correct actions if skip argument resolves to false', async () => {
-                graphQL.request = jest.fn().mockResolvedValue({ projects: { items: ['x'], total: 33 } });
-                await store.dispatch<any>(loadProjects(graphQL as GraphQLClient, {}));
-
-                expect(graphQL.request).toHaveBeenCalledTimes(1);
-                expect(graphQL.request).toHaveBeenCalledWith(projectsQuery, { skip: undefined });
-                expect(store.getActions()).toEqual([{ type: 'projects/LOADED', payload: { items: ['x'], total: 33 } }]);
-            });
+        expect(loadProjects).toHaveBeenCalledTimes(1);
+        expect(loadProjects).toHaveBeenCalledWith('graphQLContext', {
+            client: '',
+            order: 'year_DESC',
+            search: '',
+            skip: 1,
         });
     });
 });

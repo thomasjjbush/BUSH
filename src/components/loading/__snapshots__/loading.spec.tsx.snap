@@ -11,13 +11,13 @@ exports[`Thumbnail should match snapshot 1`] = `
     justify-content: center;
 "
 >
-  <h1>
-    Loading
-  </h1>
+  <p>
+    LOADING
+  </p>
   <Image
     size={200}
     src="theme.images.loading"
-    width={50}
+    width={30}
   />
 </styled.main>
 `;

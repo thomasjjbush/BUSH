@@ -13,7 +13,7 @@ import { useGraphQL } from '../../utils';
 
 const renderSimilar = (title: string, items: Partial<ProjectType>[], color?: string): ReactElement => (
     <Fragment>
-        <p style={{ margin: 30 }}>{title}</p>
+        <Styled.SimilarTitle>{title}</Styled.SimilarTitle>
         <Styled.SimilarContainer>
             {items.map(({ client, hero, name, slug }) => (
                 <Styled.Similar color={color || client.primaryColor} key={slug} url={hero.url}>
@@ -30,6 +30,7 @@ const Project: FunctionComponent = (): ReactElement => {
     const graphQL = useGraphQL();
     const dispatch = useDispatch();
     const { slug } = useParams<{ slug: string }>();
+
     const project = useSelector<Store, ProjectState>(state => state.project);
     const [sticky, setSticky] = useState(false);
 

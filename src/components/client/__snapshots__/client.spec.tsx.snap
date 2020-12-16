@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Client should apply css filter if background is false and inverse prop is true 1`] = `
+<styled.a
+  background={false}
+  href="url"
+  inverse={true}
+  rel="noreferrer"
+  styles="
+    background-color: transparent;
+    display: inline-block;
+    padding: 10px;
+    filter: brightness(0) invert(1);
+"
+  target="_blank"
+>
+  <Image
+    alt="alt"
+    size={20}
+    src="logo"
+    width={10}
+  />
+</styled.a>
+`;
+
 exports[`Client should match snapshot 1`] = `
 <styled.a
   background={false}
@@ -9,6 +32,7 @@ exports[`Client should match snapshot 1`] = `
     background-color: transparent;
     display: inline-block;
     padding: 10px;
+    
 "
   target="_blank"
 >
@@ -30,6 +54,7 @@ exports[`Client should match snapshot with default argument of backrgound 1`] = 
     background-color: white;
     display: inline-block;
     padding: 10px;
+    
 "
   target="_blank"
 >

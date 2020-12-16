@@ -15,7 +15,9 @@ exports[`App should match snapshot 1`] = `
   >
     <Memo(l) />
     <BrowserRouter>
-      <Nav />
+      <Nav
+        darkMode={true}
+      />
       <Suspense
         fallback={<Unknown />}
       >

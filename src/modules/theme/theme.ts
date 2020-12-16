@@ -9,7 +9,7 @@ const pallette = {
     white: '#ffffff',
 };
 
-export const initTheme = (darkMode: boolean): Theme => ({
+export const initTheme = (darkMode: boolean, webpSupport?: boolean): Theme => ({
     breakpoints: {
         mobile: 600,
         tabletLandscape: 1025,
@@ -33,5 +33,5 @@ export const initTheme = (darkMode: boolean): Theme => ({
         loading:
             'https://images.ctfassets.net/e85zpqq4b2pc/7oqaXxGJ4OYVMunVaJR0qA/bba0a34f6717ce60b3361dd86b0d633f/loading.gif',
     },
-    // isWebpSupported: isWebpSupported(),
+    isWebpSupported: webpSupport ?? isWebpSupported(),
 });
