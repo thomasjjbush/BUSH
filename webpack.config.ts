@@ -81,8 +81,9 @@ export default (args: string[]): WebpackConfig => {
         plugins: [
             new CompressionPlugin(),
             new HtmlWebPackPlugin({
+                favicon: './favicon.ico',
+                filename: 'index.html',
                 template: './src/index.html',
-                filename: './index.html',
             }),
             new webpack.DefinePlugin({ 'process.env': JSON.stringify({ ...envVariables, ...commandVariables }) }),
         ],
